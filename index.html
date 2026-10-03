@@ -1,2044 +1,1556 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+    <title>VitaCare — Preventive Health, Simplified</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="VitaCare preventive health testing with convenient booking and home sample collection."
+    >
 
-  <meta name="description"
-    content="VitaCare - Preventive healthcare, diagnostic tests and convenient home sample collection.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <title>VitaCare — Preventive Health, Simplified</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
-    rel="stylesheet">
-
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
+    <!-- ============================= -->
+    <!-- SCROLL PROGRESS -->
+    <!-- ============================= -->
 
-  <!-- =========================================
-       PAGE EFFECTS
-  ========================================== -->
-
-  <div class="cursor-glow"></div>
-
-  <div class="progress-bar" id="progressBar"></div>
+    <div id="progressBar"></div>
 
 
+    <!-- ============================= -->
+    <!-- TOP STRIP -->
+    <!-- ============================= -->
 
-  <!-- =========================================
-       TOP BAR
-  ========================================== -->
+    <div class="top-strip">
+        <div class="container top-strip-inner">
 
-  <div class="top-strip">
+            <div class="top-left">
+                <span>
+                    <i class="fa-solid fa-house-medical"></i>
+                    Home Sample Collection Available
+                </span>
+            </div>
 
-    <div class="container top-strip-inner">
+            <div class="top-right">
+                <a href="tel:+919693487083">
+                    <i class="fa-solid fa-phone"></i>
+                    +91 96934 87083
+                </a>
 
-      <div class="top-left">
+                <span class="top-divider"></span>
 
-        <span class="top-dot"></span>
+                <span>
+                    <i class="fa-solid fa-clock"></i>
+                    Mon – Sun
+                </span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- NAVBAR -->
+    <!-- ============================= -->
+
+    <header class="navbar" id="navbar">
+
+        <div class="container nav-inner">
+
+            <a href="#home" class="brand">
+
+                <div class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <div class="brand-text">
+                    <strong>VitaCare</strong>
+                    <span>Preventive Health</span>
+                </div>
+
+            </a>
+
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                type="button"
+                aria-label="Open navigation menu"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="#home">Home</a>
+                <a href="#why">Why VitaCare</a>
+                <a href="#featured">Packages</a>
+                <a href="#tests">All Tests</a>
+                <a href="#process">How It Works</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+
+                <a href="#booking" class="nav-book-btn">
+                    Book Now
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ============================= -->
+    <!-- HERO -->
+    <!-- ============================= -->
+
+    <main>
+
+        <section class="hero-section" id="home">
+
+            <div class="hero-glow hero-glow-one"></div>
+            <div class="hero-glow hero-glow-two"></div>
+
+            <div class="container hero-grid">
+
+                <div class="hero-content reveal">
+
+                    <div class="hero-badge">
+                        <span class="hero-badge-dot"></span>
+                        Preventive healthcare made simple
+                    </div>
+
+                    <h1>
+                        Your health.
+                        <span>Know it.</span>
+                        Protect it.
+                    </h1>
+
+                    <p class="hero-description">
+                        Reliable diagnostic testing with transparent MRP,
+                        convenient booking and home sample collection.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <a href="#booking" class="primary-btn">
+                            Book a Test
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <a href="#tests" class="secondary-btn">
+                            Explore Tests
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </a>
+
+                    </div>
+
+                    <div class="hero-trust">
+
+                        <div class="trust-item">
+                            <i class="fa-solid fa-shield-heart"></i>
+                            <span>Trusted Testing</span>
+                        </div>
+
+                        <div class="trust-item">
+                            <i class="fa-solid fa-house"></i>
+                            <span>Home Collection</span>
+                        </div>
+
+                        <div class="trust-item">
+                            <i class="fa-solid fa-headset"></i>
+                            <span>Booking Support</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual reveal">
+
+                    <div class="hero-card-main">
+
+                        <div class="hero-card-top">
+
+                            <div class="hero-card-icon">
+                                <i class="fa-solid fa-flask-vial"></i>
+                            </div>
+
+                            <div>
+                                <span>VitaCare</span>
+                                <strong>Health Testing</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="health-circle">
+
+                            <div class="health-circle-inner">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                                <strong>CARE</strong>
+                                <span>Starts with knowing</span>
+                            </div>
+
+                        </div>
+
+                        <div class="hero-mini-stats">
+
+                            <div>
+                                <strong>100+</strong>
+                                <span>Tests</span>
+                            </div>
+
+                            <div>
+                                <strong>Easy</strong>
+                                <span>Booking</span>
+                            </div>
+
+                            <div>
+                                <strong>Home</strong>
+                                <span>Collection</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="floating-card floating-card-one">
+
+                        <div class="floating-icon">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+
+                        <div>
+                            <strong>Simple Booking</strong>
+                            <span>Choose your tests</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="floating-card floating-card-two">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                        <div>
+                            <strong>WhatsApp Support</strong>
+                            <span>Quick assistance</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- MARQUEE -->
+        <!-- ============================= -->
+
+        <section class="marquee-section">
+
+            <div class="marquee-track">
+
+                <div class="marquee-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Preventive Health
+                </div>
+
+                <div class="marquee-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Diagnostic Testing
+                </div>
+
+                <div class="marquee-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Home Sample Collection
+                </div>
+
+                <div class="marquee-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Easy WhatsApp Booking
+                </div>
+
+                <div class="marquee-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Transparent MRP
+                </div>
+
+                <div class="marquee-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Preventive Health
+                </div>
+
+                <div class="marquee-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Diagnostic Testing
+                </div>
+
+                <div class="marquee-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Home Sample Collection
+                </div>
+
+                <div class="marquee-item">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Easy WhatsApp Booking
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- WHY VITACARE -->
+        <!-- ============================= -->
+
+        <section class="why-section section-padding" id="why">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        WHY VITACARE
+                    </span>
+
+                    <h2>
+                        Healthcare that fits
+                        <span>your life.</span>
+                    </h2>
+
+                    <p>
+                        We keep preventive testing simple, accessible
+                        and convenient from booking to reporting.
+                    </p>
+
+                </div>
+
+
+                <div class="why-grid">
+
+                    <article class="why-card reveal">
+
+                        <div class="why-icon">
+                            <i class="fa-solid fa-house-medical"></i>
+                        </div>
+
+                        <span class="why-number">01</span>
+
+                        <h3>Home Sample Collection</h3>
+
+                        <p>
+                            Get your sample collected conveniently
+                            from your home.
+                        </p>
+
+                    </article>
+
+
+                    <article class="why-card reveal">
+
+                        <div class="why-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+
+                        <span class="why-number">02</span>
+
+                        <h3>Wide Test Catalogue</h3>
+
+                        <p>
+                            Explore a broad range of diagnostic
+                            tests and health packages.
+                        </p>
+
+                    </article>
+
+
+                    <article class="why-card reveal">
+
+                        <div class="why-icon">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+
+                        <span class="why-number">03</span>
+
+                        <h3>Simple Booking</h3>
+
+                        <p>
+                            Select one or multiple tests and
+                            continue your booking on WhatsApp.
+                        </p>
+
+                    </article>
+
+
+                    <article class="why-card reveal">
+
+                        <div class="why-icon">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+
+                        <span class="why-number">04</span>
+
+                        <h3>Booking Assistance</h3>
+
+                        <p>
+                            Our team can help you with your
+                            booking details and test selection.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- FEATURED PACKAGES -->
+        <!-- ============================= -->
+
+        <section class="featured-section section-padding" id="featured">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        MOST REQUESTED
+                    </span>
+
+                    <h2>
+                        Featured health
+                        <span>packages.</span>
+                    </h2>
+
+                    <p>
+                        Start with some of the most requested
+                        health screening options.
+                    </p>
+
+                </div>
+
+
+                <div class="featured-grid">
+
+
+                    <!-- PACKAGE 152 -->
+
+                    <article
+                        class="featured-card featured-card-main reveal"
+                        data-featured-select="true"
+                        data-sn="152"
+                        data-name="Viral Marker Quantitative with VDRL"
+                        data-mrp="2000"
+                    >
+
+                        <div class="featured-top">
+
+                            <span class="package-label">
+                                FEATURED
+                            </span>
+
+                            <span class="package-number">
+                                #152
+                            </span>
+
+                        </div>
+
+                        <div class="package-icon">
+                            <i class="fa-solid fa-shield-virus"></i>
+                        </div>
+
+                        <h3>
+                            Viral Marker Quantitative
+                            with VDRL
+                        </h3>
+
+                        <div class="package-mrp">
+                            <span>MRP</span>
+                            <strong>₹2,000</strong>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="package-select-btn"
+                            data-featured-select="true"
+                            data-sn="152"
+                            data-name="Viral Marker Quantitative with VDRL"
+                            data-mrp="2000"
+                        >
+                            Select Package
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </article>
+
+
+                    <!-- PACKAGE 153 -->
+
+                    <article
+                        class="featured-card reveal"
+                        data-featured-select="true"
+                        data-sn="153"
+                        data-name="BSD Health Package Basic"
+                        data-mrp="1500"
+                    >
+
+                        <div class="featured-top">
+
+                            <span class="package-label">
+                                HEALTH PACKAGE
+                            </span>
+
+                            <span class="package-number">
+                                #153
+                            </span>
+
+                        </div>
+
+                        <div class="package-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <h3>
+                            BSD Health Package Basic
+                        </h3>
+
+                        <div class="package-mrp">
+                            <span>MRP</span>
+                            <strong>₹1,500</strong>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="package-select-btn"
+                            data-featured-select="true"
+                            data-sn="153"
+                            data-name="BSD Health Package Basic"
+                            data-mrp="1500"
+                        >
+                            Select Package
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </article>
+
+
+                    <!-- PACKAGE 154 -->
+
+                    <article
+                        class="featured-card reveal"
+                        data-featured-select="true"
+                        data-sn="154"
+                        data-name="BSD Health Package Advance"
+                        data-mrp="2899"
+                    >
+
+                        <div class="featured-top">
+
+                            <span class="package-label">
+                                ADVANCED
+                            </span>
+
+                            <span class="package-number">
+                                #154
+                            </span>
+
+                        </div>
+
+                        <div class="package-icon">
+                            <i class="fa-solid fa-microscope"></i>
+                        </div>
+
+                        <h3>
+                            BSD Health Package Advance
+                        </h3>
+
+                        <div class="package-mrp">
+                            <span>MRP</span>
+                            <strong>₹2,899</strong>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="package-select-btn"
+                            data-featured-select="true"
+                            data-sn="154"
+                            data-name="BSD Health Package Advance"
+                            data-mrp="2899"
+                        >
+                            Select Package
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- ALL TESTS -->
+        <!-- ============================= -->
+
+        <section class="tests-section section-padding" id="tests">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        TEST CATALOGUE
+                    </span>
+
+                    <h2>
+                        Find your
+                        <span>test.</span>
+                    </h2>
+
+                    <p>
+                        Search the catalogue and select one or
+                        multiple tests for your booking.
+                    </p>
+
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <div class="test-search-area reveal">
+
+                    <div class="test-search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="testSearch"
+                            placeholder="Search test by name or serial number..."
+                            autocomplete="off"
+                        >
+
+                        <button
+                            type="button"
+                            id="clearSearch"
+                            aria-label="Clear search"
+                        >
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="test-count">
+                        <span id="testCount">0</span>
+                        tests available
+                    </div>
+
+                </div>
+
+
+                <!-- MULTI SELECT SUMMARY -->
+
+                <div
+                    class="selected-summary reveal"
+                    id="selectedSummary"
+                >
+
+                    <div class="selected-summary-left">
+
+                        <div class="selected-summary-icon">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+
+                        <div>
+
+                            <span class="selected-summary-label">
+                                SELECTED
+                            </span>
+
+                            <strong>
+                                <span id="selectedCount">0</span>
+                                tests/packages
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="selected-summary-right">
+
+                        <span id="selectedTestName">
+                            No test selected
+                        </span>
+
+                        <button
+                            type="button"
+                            id="continueBooking"
+                        >
+                            Continue to Booking
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TEST LIST -->
+
+                <div
+                    class="test-catalog"
+                    id="testCatalogue"
+                >
+                    <!-- JavaScript will render all tests here -->
+                </div>
+
+
+                <!-- NO RESULTS -->
+
+                <div
+                    class="no-results"
+                    id="noResults"
+                    hidden
+                >
+
+                    <div class="no-results-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
+                    <h3>No tests found</h3>
+
+                    <p>
+                        Try searching with another test name
+                        or serial number.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- HOW IT WORKS -->
+        <!-- ============================= -->
+
+        <section class="process-section section-padding" id="process">
+
+            <div class="container">
+
+                <div class="section-heading process-heading reveal">
+
+                    <span class="eyebrow">
+                        04 — HOW IT WORKS
+                    </span>
+
+                    <h2>
+                        Five steps.
+                        <span>Zero hassle.</span>
+                    </h2>
+
+                    <p>
+                        A streamlined experience from your first
+                        click to your final report.
+                    </p>
+
+                </div>
+
+
+                <div class="process-line">
+
+
+                    <div class="process-step reveal">
+
+                        <span class="process-number">01</span>
+
+                        <div class="process-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+
+                        <h3>Choose Tests</h3>
+
+                        <p>
+                            Search and select one or multiple
+                            tests/packages.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-step reveal">
+
+                        <span class="process-number">02</span>
+
+                        <div class="process-icon">
+                            <i class="fa-solid fa-user-pen"></i>
+                        </div>
+
+                        <h3>Enter Details</h3>
+
+                        <p>
+                            Add your name, mobile, age and
+                            full address.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-step reveal">
+
+                        <span class="process-number">03</span>
+
+                        <div class="process-icon">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+
+                        <h3>WhatsApp Booking</h3>
+
+                        <p>
+                            Continue your booking directly
+                            on WhatsApp.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-step reveal">
+
+                        <span class="process-number">04</span>
+
+                        <div class="process-icon">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+
+                        <h3>Sample Collection</h3>
+
+                        <p>
+                            Get convenient sample collection
+                            assistance.
+                        </p>
+
+                    </div>
+
+
+                    <div class="process-step reveal">
+
+                        <span class="process-number">05</span>
+
+                        <div class="process-icon">
+                            <i class="fa-solid fa-file-medical"></i>
+                        </div>
+
+                        <h3>Get Your Report</h3>
+
+                        <p>
+                            Receive your diagnostic report
+                            after testing.
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- BOOKING -->
+        <!-- ============================= -->
+
+        <section class="booking-section section-padding" id="booking">
+
+            <div class="container">
+
+                <div class="booking-wrapper">
+
+
+                    <!-- BOOKING INFO -->
+
+                    <div class="booking-info reveal">
+
+                        <span class="eyebrow">
+                            VITACARE BOOKING
+                        </span>
+
+                        <h2>
+                            Complete your
+                            <span>booking.</span>
+                        </h2>
+
+                        <p>
+                            Enter your details below. Select as many
+                            tests or packages as you need.
+                        </p>
+
+
+                        <div class="booking-benefits">
+
+                            <div class="booking-benefit">
+
+                                <div class="booking-benefit-icon">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Multiple test selection
+                                    </strong>
+
+                                    <span>
+                                        Add one or more tests to your booking.
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="booking-benefit">
+
+                                <div class="booking-benefit-icon">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Easy WhatsApp booking
+                                    </strong>
+
+                                    <span>
+                                        Send your details directly to VitaCare.
+                                    </span>
+                                </div>
+
+                            </div>
+
+
+                            <div class="booking-benefit">
+
+                                <div class="booking-benefit-icon">
+                                    <i class="fa-solid fa-check"></i>
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        Home collection assistance
+                                    </strong>
+
+                                    <span>
+                                        Get help with your sample collection.
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- BOOKING FORM -->
+
+                    <div class="booking-form-card reveal">
+
+                        <form id="bookingForm" novalidate>
+
+                            <!-- FULL NAME -->
+
+                            <div class="form-group">
+
+                                <label for="name">
+                                    Full Name
+                                </label>
+
+                                <div class="input-wrap">
+
+                                    <i class="fa-regular fa-user"></i>
+
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        placeholder="Enter your full name"
+                                        autocomplete="name"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- MOBILE -->
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="phone">
+                                        Mobile Number
+                                    </label>
+
+                                    <div class="input-wrap">
+
+                                        <i class="fa-solid fa-phone"></i>
+
+                                        <input
+                                            type="tel"
+                                            id="phone"
+                                            name="phone"
+                                            placeholder="10-digit mobile number"
+                                            inputmode="numeric"
+                                            maxlength="10"
+                                            autocomplete="tel"
+                                            required
+                                        >
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- AGE -->
+
+                                <div class="form-group">
+
+                                    <label for="age">
+                                        Age
+                                    </label>
+
+                                    <div class="input-wrap">
+
+                                        <i class="fa-solid fa-calendar-days"></i>
+
+                                        <input
+                                            type="number"
+                                            id="age"
+                                            name="age"
+                                            placeholder="Age"
+                                            min="1"
+                                            max="100"
+                                            step="1"
+                                            inputmode="numeric"
+                                            required
+                                        >
+
+                                    </div>
+
+                                    <small class="field-hint">
+                                        1–100 years
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- FULL ADDRESS -->
+
+                            <div class="form-group">
+
+                                <label for="address">
+                                    Full Address
+                                </label>
+
+                                <div class="input-wrap textarea-wrap">
+
+                                    <i class="fa-solid fa-location-dot"></i>
+
+                                    <textarea
+                                        id="address"
+                                        name="address"
+                                        rows="4"
+                                        placeholder="Enter your complete address"
+                                        autocomplete="street-address"
+                                        required
+                                    ></textarea>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- SELECTED TESTS -->
+
+                            <div class="form-group">
+
+                                <div class="selected-booking-heading">
+
+                                    <label>
+                                        Selected Package / Test
+                                    </label>
+
+                                    <span id="selectedBookingCount">
+                                        0 selected
+                                    </span>
+
+                                </div>
+
+
+                                <div
+                                    class="selected-booking-box"
+                                    id="bookingSelection"
+                                >
+
+                                    <div
+                                        class="selected-booking-empty"
+                                        id="selectedBookingEmpty"
+                                    >
+
+                                        <div class="empty-selection-icon">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </div>
+
+                                        <div>
+                                            <strong>
+                                                No tests selected
+                                            </strong>
+
+                                            <span>
+                                                Select one or more tests/packages above.
+                                            </span>
+                                        </div>
+
+                                    </div>
+
+
+                                    <!--
+                                        JavaScript will insert
+                                        selected test/package items here.
+                                    -->
+
+                                    <div
+                                        class="selected-booking-list"
+                                        id="selectedBookingTests"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- STATUS -->
+
+                            <div
+                                class="form-status"
+                                id="formStatus"
+                                role="alert"
+                                aria-live="polite"
+                            ></div>
+
+
+                            <!-- WHATSAPP BUTTON -->
+
+                            <button
+                                type="submit"
+                                class="whatsapp-submit"
+                                id="whatsappSubmit"
+                            >
+
+                                <span>
+                                    Continue on WhatsApp
+                                </span>
+
+                                <i class="fa-brands fa-whatsapp"></i>
+
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                            </button>
+
+
+                            <p class="form-note">
+
+                                <i class="fa-solid fa-lock"></i>
+
+                                Your details will be used only for
+                                booking assistance.
+
+                            </p>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- REVIEWS -->
+        <!-- ============================= -->
+
+        <section class="reviews-section section-padding" id="reviews">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <span class="eyebrow">
+                        PATIENT EXPERIENCE
+                    </span>
+
+                    <h2>
+                        Simple care.
+                        <span>Happy patients.</span>
+                    </h2>
+
+                    <p>
+                        A smooth booking experience can make
+                        preventive healthcare easier.
+                    </p>
+
+                </div>
+
+
+                <div class="reviews-grid">
+
+
+                    <article class="review-card reveal">
+
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “The booking process was very simple
+                            and the WhatsApp support made it easy
+                            to share my requirements.”
+                        </p>
+
+                        <div class="review-user">
+
+                            <div class="review-avatar">
+                                A
+                            </div>
+
+                            <div>
+                                <strong>
+                                    A. Kumar
+                                </strong>
+
+                                <span>
+                                    Patient
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="review-card reveal">
+
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “I could select the tests I needed
+                            without going through a complicated
+                            booking process.”
+                        </p>
+
+                        <div class="review-user">
+
+                            <div class="review-avatar">
+                                R
+                            </div>
+
+                            <div>
+                                <strong>
+                                    R. Sharma
+                                </strong>
+
+                                <span>
+                                    Patient
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="review-card reveal">
+
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+
+                        <p>
+                            “The website is clean and easy to
+                            understand. Booking assistance was
+                            convenient.”
+                        </p>
+
+                        <div class="review-user">
+
+                            <div class="review-avatar">
+                                S
+                            </div>
+
+                            <div>
+                                <strong>
+                                    S. Verma
+                                </strong>
+
+                                <span>
+                                    Patient
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- FINAL CTA -->
+        <!-- ============================= -->
+
+        <section class="final-cta-section" id="contact">
+
+            <div class="container">
+
+                <div class="final-cta reveal">
+
+                    <div class="final-cta-content">
+
+                        <span class="eyebrow">
+                            NEED HELP?
+                        </span>
+
+                        <h2>
+                            Your health journey
+                            starts with one step.
+                        </h2>
+
+                        <p>
+                            Choose your tests and send your booking
+                            details to VitaCare on WhatsApp.
+                        </p>
+
+                    </div>
+
+
+                    <div class="final-cta-actions">
+
+                        <a
+                            href="https://wa.me/919693487083"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="primary-btn"
+                        >
+                            Chat on WhatsApp
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+
+                        <a
+                            href="tel:+919693487083"
+                            class="secondary-btn"
+                        >
+                            Call Us
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ============================= -->
+    <!-- FOOTER -->
+    <!-- ============================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <div class="footer-brand">
+
+                    <a href="#home" class="brand">
+
+                        <div class="brand-icon">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+
+                        <div class="brand-text">
+                            <strong>VitaCare</strong>
+                            <span>Preventive Health</span>
+                        </div>
+
+                    </a>
+
+                    <p>
+                        Preventive healthcare made simple,
+                        accessible and convenient.
+                    </p>
+
+                    <a
+                        href="https://wa.me/919693487083"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="footer-whatsapp"
+                    >
+                        <i class="fa-brands fa-whatsapp"></i>
+                        WhatsApp Us
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Quick Links</h4>
+
+                    <a href="#home">Home</a>
+                    <a href="#why">Why VitaCare</a>
+                    <a href="#featured">Packages</a>
+                    <a href="#tests">All Tests</a>
+                    <a href="#booking">Book a Test</a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Services</h4>
+
+                    <a href="#tests">Diagnostic Tests</a>
+                    <a href="#featured">Health Packages</a>
+                    <a href="#process">Home Collection</a>
+                    <a href="#booking">Booking Assistance</a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>Contact</h4>
+
+                    <a href="tel:+919693487083">
+                        <i class="fa-solid fa-phone"></i>
+                        +91 96934 87083
+                    </a>
+
+                    <a
+                        href="https://wa.me/919693487083"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fa-brands fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 VitaCare. All rights reserved.
+                </p>
+
+                <p>
+                    Preventive Health, Simplified.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ============================= -->
+    <!-- FLOATING WHATSAPP -->
+    <!-- ============================= -->
+
+    <a
+        href="https://wa.me/919693487083"
+        class="floating-whatsapp"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with VitaCare on WhatsApp"
+    >
+        <i class="fa-brands fa-whatsapp"></i>
 
         <span>
-          Home sample collection available
+            WhatsApp
         </span>
+    </a>
 
-      </div>
 
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
 
-      <a href="https://wa.me/919693487083" target="_blank" rel="noopener">
-        WhatsApp
-        +91 96934 87083
-        ↗
-      </a>
-
-    </div>
-
-  </div>
-
-
-
-  <!-- =========================================
-       NAVBAR
-  ========================================== -->
-
-  <header class="header" id="header">
-
-    <div class="container nav">
-
-
-      <!-- LOGO -->
-
-      <a href="#home" class="brand">
-
-        <span class="brand-mark">
-
-          <b>V</b>
-
-          <em>+</em>
-
-        </span>
-
-
-        <span class="brand-name">
-
-          vita<span>care</span>
-
-        </span>
-
-      </a>
-
-
-
-      <!-- DESKTOP NAV -->
-
-      <nav class="nav-links" id="navLinks">
-
-        <a href="#home">
-          Home
-        </a>
-
-        <a href="#featured">
-          Packages
-        </a>
-
-        <a href="#tests">
-          Tests
-        </a>
-
-        <a href="#process">
-          Process
-        </a>
-
-        <a href="#booking">
-          Booking
-        </a>
-
-        <a href="#reviews">
-          Reviews
-        </a>
-
-        <a href="#contact">
-          Contact
-        </a>
-
-      </nav>
-
-
-
-      <!-- NAV BUTTON -->
-
-      <a href="#booking" class="nav-button">
-
-        Book Checkup
-
-        <span>↗</span>
-
-      </a>
-
-
-
-      <!-- MOBILE MENU -->
-
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation">
-
-        <span></span>
-        <span></span>
-
-      </button>
-
-    </div>
-
-  </header>
-
-
-
-  <!-- =========================================
-       MAIN
-  ========================================== -->
-
-  <main>
-
-
-
-    <!-- =========================================
-         HERO
-    ========================================== -->
-
-    <section class="hero" id="home">
-
-      <div class="hero-grid-lines"></div>
-
-
-      <div class="container hero-layout">
-
-
-        <!-- HERO LEFT -->
-
-        <div class="hero-content">
-
-
-          <div class="hero-kicker reveal">
-
-            <span class="live-dot"></span>
-
-            PREVENTIVE HEALTHCARE
-
-          </div>
-
-
-
-          <h1 class="hero-title">
-
-            <span class="line">
-
-              <span>
-                Know your
-              </span>
-
-            </span>
-
-
-            <span class="line accent-line">
-
-              <span>
-                health.
-              </span>
-
-            </span>
-
-
-            <span class="line">
-
-              <span>
-                Own your future.
-              </span>
-
-            </span>
-
-          </h1>
-
-
-
-          <p class="hero-description reveal">
-
-            Comprehensive health screening,
-            reliable testing and convenient
-            home collection — designed around
-            the way you live.
-
-          </p>
-
-
-
-          <div class="hero-buttons reveal">
-
-            <a href="#featured" class="button primary">
-
-              Explore Packages
-
-              <span>→</span>
-
-            </a>
-
-
-            <a href="#tests" class="button ghost">
-
-              Find a Test
-
-              <span>↓</span>
-
-            </a>
-
-          </div>
-
-
-
-          <div class="hero-trust reveal">
-
-            <div class="mini-avatars">
-
-              <b>RS</b>
-              <b>AK</b>
-              <b>PM</b>
-              <b>+</b>
-
-            </div>
-
-
-            <div>
-
-              <strong>
-                Easy health booking
-              </strong>
-
-              <small>
-                Convenient support on WhatsApp
-              </small>
-
-            </div>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- HERO RIGHT -->
-
-        <div class="hero-stage">
-
-          <div class="orb orb-a"></div>
-
-          <div class="orb orb-b"></div>
-
-
-
-          <div class="medical-card glass-card">
-
-
-            <div class="medical-top">
-
-              <span>
-                YOUR HEALTH SNAPSHOT
-              </span>
-
-              <b>
-                ● LIVE
-              </b>
-
-            </div>
-
-
-
-            <div class="health-score">
-
-              <div class="score-circle">
-
-                <div>
-
-                  <strong>
-                    86
-                  </strong>
-
-                  <small>
-                    /100
-                  </small>
-
-                </div>
-
-              </div>
-
-
-              <div>
-
-                <span>
-                  Overall
-                </span>
-
-                <strong>
-                  Good health
-                </strong>
-
-                <small>
-                  Based on your screening
-                </small>
-
-              </div>
-
-            </div>
-
-
-
-            <div class="metric">
-
-              <div>
-
-                <span>
-                  Blood profile
-                </span>
-
-                <b>
-                  88%
-                </b>
-
-              </div>
-
-              <i>
-                <em style="width:88%"></em>
-              </i>
-
-            </div>
-
-
-
-            <div class="metric">
-
-              <div>
-
-                <span>
-                  Heart health
-                </span>
-
-                <b>
-                  76%
-                </b>
-
-              </div>
-
-              <i>
-                <em style="width:76%"></em>
-              </i>
-
-            </div>
-
-
-
-            <div class="metric">
-
-              <div>
-
-                <span>
-                  Vitamin levels
-                </span>
-
-                <b>
-                  68%
-                </b>
-
-              </div>
-
-              <i>
-                <em style="width:68%"></em>
-              </i>
-
-            </div>
-
-
-
-            <div class="medical-footer">
-
-              <span>●</span>
-
-              Preventive screening
-
-            </div>
-
-          </div>
-
-
-
-          <!-- FLOATING CARD 1 -->
-
-          <div class="float-card float-one">
-
-            <span>
-              ✓
-            </span>
-
-            <div>
-
-              <b>
-                Report ready
-              </b>
-
-              <small>
-                Digital access
-              </small>
-
-            </div>
-
-          </div>
-
-
-
-          <!-- FLOATING CARD 2 -->
-
-          <div class="float-card float-two">
-
-            <span>
-              ⌂
-            </span>
-
-            <div>
-
-              <b>
-                Home collection
-              </b>
-
-              <small>
-                At your convenience
-              </small>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="stage-ring"></div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="scroll-cue">
-
-        <span></span>
-
-        SCROLL TO EXPLORE
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         MARQUEE
-    ========================================== -->
-
-    <section class="marquee-section">
-
-      <div class="marquee">
-
-        <div class="marquee-track">
-
-          <span>
-            PREVENTIVE CARE
-          </span>
-
-          <i>✦</i>
-
-
-          <span>
-            HOME COLLECTION
-          </span>
-
-          <i>✦</i>
-
-
-          <span>
-            RELIABLE TESTING
-          </span>
-
-          <i>✦</i>
-
-
-          <span>
-            DIGITAL REPORTS
-          </span>
-
-          <i>✦</i>
-
-
-          <span>
-            PREVENTIVE CARE
-          </span>
-
-          <i>✦</i>
-
-
-          <span>
-            HOME COLLECTION
-          </span>
-
-          <i>✦</i>
-
-
-          <span>
-            RELIABLE TESTING
-          </span>
-
-          <i>✦</i>
-
-
-          <span>
-            DIGITAL REPORTS
-          </span>
-
-          <i>✦</i>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         WHY VITACARE
-    ========================================== -->
-
-    <section class="section intro-section">
-
-      <div class="container two-column">
-
-
-        <div class="section-label reveal-left">
-
-          01 — WHY VITACARE
-
-        </div>
-
-
-        <div>
-
-          <h2 class="display-title reveal-up">
-
-            Healthcare shouldn't feel
-
-            <span>
-              complicated.
-            </span>
-
-          </h2>
-
-
-          <p class="large-copy reveal-up">
-
-            From booking to sample collection
-            to your final report, every step is
-            designed to be clear, convenient
-            and stress-free.
-
-          </p>
-
-
-
-          <div class="feature-row">
-
-
-            <article class="feature reveal-up">
-
-              <div class="feature-number">
-                01
-              </div>
-
-              <h3>
-                Convenient
-              </h3>
-
-              <p>
-                Sample collection at home,
-                when it works for you.
-              </p>
-
-            </article>
-
-
-
-            <article class="feature reveal-up">
-
-              <div class="feature-number">
-                02
-              </div>
-
-              <h3>
-                Transparent
-              </h3>
-
-              <p>
-                Clear test details and
-                straightforward pricing.
-              </p>
-
-            </article>
-
-
-
-            <article class="feature reveal-up">
-
-              <div class="feature-number">
-                03
-              </div>
-
-              <h3>
-                Connected
-              </h3>
-
-              <p>
-                Easy booking and direct
-                WhatsApp support.
-              </p>
-
-            </article>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ==================================================
-         FEATURED PACKAGES
-         152 / 153 / 154
-    =================================================== -->
-
-    <section class="section featured-section" id="featured">
-
-      <div class="container">
-
-
-        <!-- HEADING -->
-
-        <div class="section-head featured-head">
-
-
-          <div>
-
-            <span class="section-label">
-              02 — FEATURED PACKAGES
-            </span>
-
-
-            <h2 class="display-title reveal-up">
-
-              Most requested
-
-              <span>
-                packages.
-              </span>
-
-            </h2>
-
-          </div>
-
-
-          <p class="head-copy reveal-up">
-
-            Quick-select our highlighted
-            packages and continue directly
-            to booking.
-
-          </p>
-
-        </div>
-
-
-
-        <!-- FEATURED BUNDLE -->
-
-        <div class="featured-bundle reveal-up">
-
-
-          <div class="featured-bundle-top">
-
-            <div>
-
-              <span class="featured-badge">
-                MOST REQUESTED
-              </span>
-
-
-              <h3>
-                Featured health packages
-              </h3>
-
-
-              <p>
-                Select any package to start your booking.
-              </p>
-
-            </div>
-
-
-            <div class="featured-mark">
-              ✦
-            </div>
-
-          </div>
-
-
-
-          <!-- 3 FEATURED CARDS -->
-
-          <div class="featured-grid">
-
-
-            <!-- =====================================
-                 152
-            ====================================== -->
-
-            <article class="featured-card" data-featured-card="152">
-
-              <div class="featured-card-top">
-
-                <span class="featured-number">
-                  152
-                </span>
-
-                <span class="featured-type">
-                  PACKAGE
-                </span>
-
-              </div>
-
-
-              <div class="featured-card-content">
-
-                <small>
-                  VIRAL MARKER
-                </small>
-
-
-                <h3>
-                  Viral Marker
-                  Quantitative with VDRL
-                </h3>
-
-              </div>
-
-
-              <!-- ONLY MRP -->
-
-              <div class="featured-price">
-
-                <span>
-                  MRP
-                </span>
-
-                <strong>
-                  ₹2,000
-                </strong>
-
-              </div>
-
-
-              <button type="button" class="featured-select" data-featured-select="true" data-sn="152"
-                data-name="Viral Marker Quantitative with VDRL" data-mrp="2000">
-
-                Select Package
-
-                <span>
-                  →
-                </span>
-
-              </button>
-
-            </article>
-
-
-
-            <!-- =====================================
-                 153
-            ====================================== -->
-
-            <article class="featured-card" data-featured-card="153">
-
-              <div class="featured-card-top">
-
-                <span class="featured-number">
-                  153
-                </span>
-
-                <span class="featured-type">
-                  PACKAGE
-                </span>
-
-              </div>
-
-
-              <div class="featured-card-content">
-
-                <small>
-                  BSD HEALTH PACKAGE
-                </small>
-
-
-                <h3>
-                  BSD Health Package
-                  Basic
-                </h3>
-
-              </div>
-
-
-              <!-- ONLY MRP -->
-
-              <div class="featured-price">
-
-                <span>
-                  MRP
-                </span>
-
-                <strong>
-                  ₹1,500
-                </strong>
-
-              </div>
-
-
-              <button type="button" class="featured-select" data-featured-select="true" data-sn="153"
-                data-name="BSD Health Package Basic" data-mrp="1500">
-
-                Select Package
-
-                <span>
-                  →
-                </span>
-
-              </button>
-
-            </article>
-
-
-
-            <!-- =====================================
-                 154
-            ====================================== -->
-
-            <article class="featured-card featured-card-highlight" data-featured-card="154">
-
-              <div class="featured-card-top">
-
-                <span class="featured-number">
-                  154
-                </span>
-
-                <span class="featured-type">
-                  PACKAGE
-                </span>
-
-              </div>
-
-
-              <div class="featured-card-content">
-
-                <small>
-                  BSD HEALTH PACKAGE
-                </small>
-
-
-                <h3>
-                  BSD Health Package
-                  Advance
-                </h3>
-
-              </div>
-
-
-              <!-- ONLY MRP -->
-
-              <div class="featured-price">
-
-                <span>
-                  MRP
-                </span>
-
-                <strong>
-                  ₹2,899
-                </strong>
-
-              </div>
-
-
-              <button type="button" class="featured-select" data-featured-select="true" data-sn="154"
-                data-name="BSD Health Package Advance" data-mrp="2899">
-
-                Select Package
-
-                <span>
-                  →
-                </span>
-
-              </button>
-
-            </article>
-
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ==================================================
-         ALL TESTS
-    =================================================== -->
-
-    <section class="section tests-section" id="tests">
-
-      <div class="container">
-
-
-        <!-- TEST HEADER -->
-
-        <div class="section-head tests-head">
-
-
-          <div>
-
-            <span class="section-label">
-              03 — ALL TESTS
-            </span>
-
-
-            <h2 class="display-title reveal-up">
-
-              Find your
-
-              <span>
-                test.
-              </span>
-
-            </h2>
-
-          </div>
-
-
-          <p class="head-copy reveal-up">
-
-            Search through the complete test
-            catalogue and select the test you need.
-
-          </p>
-
-        </div>
-
-
-
-        <!-- =========================================
-             SEARCH AREA
-        ========================================== -->
-
-        <div class="test-search-area reveal-up">
-
-
-          <div class="test-search-box">
-
-
-            <span class="search-icon">
-              ⌕
-            </span>
-
-
-            <input type="search" id="testSearch" placeholder="Search test by name or test number..." autocomplete="off"
-              aria-label="Search tests">
-
-
-            <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search">
-              ×
-            </button>
-
-
-          </div>
-
-
-
-          <div class="search-info">
-
-
-            <div>
-
-              <strong id="testCount">
-                0
-              </strong>
-
-              <span>
-                tests available
-              </span>
-
-            </div>
-
-
-            <div class="search-tip">
-
-              Type test name to search
-
-            </div>
-
-
-          </div>
-
-
-        </div>
-
-
-
-        <!-- =========================================
-             SELECTED SUMMARY
-        ========================================== -->
-
-        <div class="selected-summary" id="selectedSummary" hidden>
-
-
-          <div class="selected-summary-left">
-
-
-            <div class="selected-check">
-              ✓
-            </div>
-
-
-            <div>
-
-              <span>
-                Selected
-              </span>
-
-
-              <strong id="selectedCount">
-                0 tests
-              </strong>
-
-            </div>
-
-          </div>
-
-
-
-          <div class="selected-summary-middle">
-
-            <span>
-              Selected item
-            </span>
-
-
-            <strong id="selectedTestName">
-              No test selected
-            </strong>
-
-          </div>
-
-
-
-          <div class="selected-summary-right">
-
-            <button type="button" class="summary-book-button" id="continueBooking">
-
-              Continue
-
-              <span>
-                →
-              </span>
-
-            </button>
-
-          </div>
-
-        </div>
-
-
-
-        <!-- =========================================
-             ALL TESTS GRID
-
-             JS WILL INSERT EVERY TEST HERE
-        ========================================== -->
-
-        <div class="test-catalog" id="testCatalogue">
-
-          <!-- JS DATA WILL APPEAR HERE -->
-
-        </div>
-
-
-
-        <!-- NO RESULTS -->
-
-        <div class="no-results" id="noResults" hidden>
-
-          <div class="no-results-icon">
-            ⌕
-          </div>
-
-
-          <h3>
-            No test found
-          </h3>
-
-
-          <p>
-            Try searching with another test name
-            or test number.
-          </p>
-
-        </div>
-
-
-
-        <!-- LOAD / INFO -->
-
-        <div class="catalog-footer">
-
-          <span>
-            Showing all available tests
-          </span>
-
-          <span>
-            •
-          </span>
-
-          <span>
-            Select a test to continue
-          </span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         HOW IT WORKS
-    ========================================== -->
-
-    <section class="section process-section" id="process">
-
-      <div class="container">
-
-
-        <div class="section-head">
-
-
-          <div>
-
-            <span class="section-label">
-              04 — HOW IT WORKS
-            </span>
-
-
-            <h2 class="display-title reveal-up">
-
-              Five steps.
-
-              <span>
-                Zero hassle.
-              </span>
-
-            </h2>
-
-          </div>
-
-
-          <p class="head-copy reveal-up">
-
-            A streamlined experience from
-            your first click to your final report.
-
-          </p>
-
-        </div>
-
-
-
-        <div class="process-line">
-
-
-          <article class="process-step reveal-up">
-
-            <b>
-              01
-            </b>
-
-            <span>
-              01
-            </span>
-
-            <h3>
-              Choose
-            </h3>
-
-            <p>
-              Select your package or test.
-            </p>
-
-          </article>
-
-
-
-          <article class="process-step reveal-up">
-
-            <b>
-              02
-            </b>
-
-            <span>
-              02
-            </span>
-
-            <h3>
-              Details
-            </h3>
-
-            <p>
-              Enter your name, mobile and city.
-            </p>
-
-          </article>
-
-
-
-          <article class="process-step reveal-up">
-
-            <b>
-              03
-            </b>
-
-            <span>
-              03
-            </span>
-
-            <h3>
-              Confirm
-            </h3>
-
-            <p>
-              Continue your booking on WhatsApp.
-            </p>
-
-          </article>
-
-
-
-          <article class="process-step reveal-up">
-
-            <b>
-              04
-            </b>
-
-            <span>
-              04
-            </span>
-
-            <h3>
-              Collect
-            </h3>
-
-            <p>
-              Sample collection at your location.
-            </p>
-
-          </article>
-
-
-
-          <article class="process-step reveal-up">
-
-            <b>
-              05
-            </b>
-
-            <span>
-              05
-            </span>
-
-            <h3>
-              Report
-            </h3>
-
-            <p>
-              Receive your health report.
-            </p>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         BOOKING SECTION
-    ========================================== -->
-
-    <section class="booking-section" id="booking">
-
-      <div class="container booking-grid">
-
-
-        <!-- BOOKING LEFT -->
-
-        <div class="booking-copy">
-
-
-          <span class="section-label">
-            05 — BOOK YOUR TEST
-          </span>
-
-
-          <h2 class="display-title">
-
-            Your health is worth
-
-            <span>
-              checking.
-            </span>
-
-          </h2>
-
-
-          <p>
-
-            Select your test or package,
-            enter your details and continue
-            directly on WhatsApp.
-
-          </p>
-
-
-
-          <div class="booking-benefits">
-
-
-            <div class="booking-note">
-
-              <span>
-                ✓
-              </span>
-
-
-              <div>
-
-                <b>
-                  Simple booking
-                </b>
-
-                <small>
-                  Select and submit your details
-                </small>
-
-              </div>
-
-            </div>
-
-
-
-            <div class="booking-note">
-
-              <span>
-                ✓
-              </span>
-
-
-              <div>
-
-                <b>
-                  WhatsApp support
-                </b>
-
-                <small>
-                  Talk directly with our team
-                </small>
-
-              </div>
-
-            </div>
-
-
-
-            <div class="booking-note">
-
-              <span>
-                ✓
-              </span>
-
-
-              <div>
-
-                <b>
-                  Home collection
-                </b>
-
-                <small>
-                  Convenient sample collection
-                </small>
-
-              </div>
-
-            </div>
-
-
-          </div>
-
-        </div>
-
-
-
-        <!-- BOOKING FORM -->
-
-        <div class="booking-form-wrap">
-
-
-          <form class="booking-form" id="bookingForm">
-
-
-            <div class="form-top">
-
-              <span>
-                VITACARE
-              </span>
-
-              <small>
-                BOOKING
-              </small>
-
-            </div>
-
-
-            <h3>
-              Complete your booking
-            </h3>
-
-
-            <p>
-              Enter your details below.
-            </p>
-
-
-
-            <!-- FULL NAME -->
-
-            <div class="form-group">
-
-              <label for="name">
-                Full Name
-              </label>
-
-
-              <input type="text" id="name" name="name" placeholder="Enter your full name" required>
-
-            </div>
-
-
-
-            <!-- MOBILE -->
-
-            <div class="form-group">
-
-              <label for="phone">
-                Mobile Number
-              </label>
-
-
-              <input type="tel" id="phone" name="phone" placeholder="Enter 10-digit mobile number" maxlength="10"
-                inputmode="numeric" required>
-
-            </div>
-
-
-
-            <!-- CITY -->
-
-            <div class="form-group">
-
-              <label for="city">
-                City
-              </label>
-
-
-              <input type="text" id="city" name="city" placeholder="Enter your city" required>
-
-            </div>
-
-
-
-            <!-- SELECTED TEST -->
-
-            <div class="form-group">
-
-              <label>
-                Selected Package / Test
-              </label>
-
-
-              <div class="booking-selection" id="bookingSelection">
-
-                <div class="booking-selection-empty">
-
-                  <span>
-                    +
-                  </span>
-
-                  <p>
-                    Select a package or test above
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-
-            <!-- HIDDEN SELECTED DATA -->
-
-            <input type="hidden" id="selectedBookingTests" name="selectedBookingTests">
-
-
-            <input type="hidden" id="selectedBookingSN" name="selectedBookingSN">
-
-
-            <input type="hidden" id="selectedBookingMRP" name="selectedBookingMRP">
-
-
-
-            <!-- SUBMIT -->
-
-            <button type="submit" class="submit-button" id="whatsappSubmit">
-
-              Continue on WhatsApp
-
-              <span>
-                ↗
-              </span>
-
-            </button>
-
-
-
-            <!-- FORM STATUS -->
-
-            <div class="form-status" id="formStatus"></div>
-
-
-
-            <small class="privacy-note">
-
-              Your details will be used only
-              for booking assistance.
-
-            </small>
-
-          </form>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         REVIEWS
-    ========================================== -->
-
-    <section class="section review-section" id="reviews">
-
-      <div class="container">
-
-
-        <div class="section-head centered">
-
-
-          <span class="section-label">
-            06 — CUSTOMER STORIES
-          </span>
-
-
-          <h2 class="display-title reveal-up">
-
-            Care that feels
-
-            <span>
-              human.
-            </span>
-
-          </h2>
-
-
-        </div>
-
-
-
-        <div class="reviews-grid">
-
-
-          <article class="review-card reveal-up">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-
-            <p>
-
-              “The booking process was simple
-              and the home collection option
-              was very convenient.”
-
-            </p>
-
-
-            <footer>
-
-              <span>
-                RS
-              </span>
-
-
-              <div>
-
-                <b>
-                  Rahul S.
-                </b>
-
-                <small>
-                  Customer
-                </small>
-
-              </div>
-
-            </footer>
-
-          </article>
-
-
-
-          <article class="review-card reveal-up">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-
-            <p>
-
-              “The test selection was easy
-              and the WhatsApp support made
-              the process very simple.”
-
-            </p>
-
-
-            <footer>
-
-              <span>
-                PM
-              </span>
-
-
-              <div>
-
-                <b>
-                  Priya M.
-                </b>
-
-                <small>
-                  Customer
-                </small>
-
-              </div>
-
-            </footer>
-
-          </article>
-
-
-
-          <article class="review-card reveal-up">
-
-            <div class="stars">
-              ★★★★★
-            </div>
-
-
-            <p>
-
-              “I could quickly find the test
-              I needed and send the booking
-              details directly.”
-
-            </p>
-
-
-            <footer>
-
-              <span>
-                AK
-              </span>
-
-
-              <div>
-
-                <b>
-                  Aman K.
-                </b>
-
-                <small>
-                  Customer
-                </small>
-
-              </div>
-
-            </footer>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         CONTACT CTA
-    ========================================== -->
-
-    <section class="final-cta" id="contact">
-
-      <div class="container final-inner">
-
-
-        <div>
-
-          <span class="section-label">
-            07 — CONTACT US
-          </span>
-
-
-          <h2>
-
-            Need help choosing
-            your
-
-            <span>
-              test?
-            </span>
-
-          </h2>
-
-
-          <p>
-
-            Talk to us directly on WhatsApp
-            for booking assistance.
-
-          </p>
-
-        </div>
-
-
-
-        <a href="https://wa.me/919693487083" target="_blank" rel="noopener" class="whatsapp-button">
-
-          <span>
-            ◉
-          </span>
-
-          Chat on WhatsApp
-
-          <b>
-            ↗
-          </b>
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-
-  <!-- =========================================
-       FOOTER
-  ========================================== -->
-
-  <footer class="footer">
-
-
-    <div class="container footer-main">
-
-
-      <!-- BRAND -->
-
-      <div class="footer-brand">
-
-
-        <a href="#home" class="brand light-brand">
-
-          <span class="brand-mark">
-
-            <b>
-              V
-            </b>
-
-            <em>
-              +
-            </em>
-
-          </span>
-
-
-          <span class="brand-name">
-
-            vita<span>care</span>
-
-          </span>
-
-        </a>
-
-
-        <p>
-
-          Preventive healthcare,
-          thoughtfully designed around you.
-
-        </p>
-
-      </div>
-
-
-
-      <!-- EXPLORE -->
-
-      <div class="footer-column">
-
-        <h4>
-          Explore
-        </h4>
-
-
-        <a href="#featured">
-          Packages
-        </a>
-
-
-        <a href="#tests">
-          All Tests
-        </a>
-
-
-        <a href="#process">
-          How It Works
-        </a>
-
-      </div>
-
-
-
-      <!-- SUPPORT -->
-
-      <div class="footer-column">
-
-        <h4>
-          Support
-        </h4>
-
-
-        <a href="#booking">
-          Book a Test
-        </a>
-
-
-        <a href="#contact">
-          Contact Us
-        </a>
-
-
-        <a href="https://wa.me/919693487083" target="_blank" rel="noopener">
-          WhatsApp
-        </a>
-
-      </div>
-
-
-
-      <!-- CONTACT -->
-
-      <div class="footer-column">
-
-        <h4>
-          WhatsApp
-        </h4>
-
-
-        <p>
-          Booking support
-        </p>
-
-
-        <strong>
-          +91 96934 87083
-        </strong>
-
-      </div>
-
-
-    </div>
-
-
-
-    <!-- FOOTER BOTTOM -->
-
-    <div class="container footer-bottom">
-
-      <span>
-        © 2026 VitaCare Diagnostics
-      </span>
-
-
-      <span>
-        Better health journeys.
-      </span>
-
-    </div>
-
-  </footer>
-
-
-
-  <!-- =========================================
-       FLOATING WHATSAPP
-  ========================================== -->
-
-  <a href="https://wa.me/919693487083" target="_blank" rel="noopener" class="floating-whatsapp"
-    aria-label="Chat on WhatsApp">
-
-    ◉
-
-  </a>
-
-
-
-  <!-- =========================================
-       JAVASCRIPT
-  ========================================== -->
-
-  <script src="script.js"></script>
-
+    <script src="script.js"></script>
 
 </body>
-
 </html>

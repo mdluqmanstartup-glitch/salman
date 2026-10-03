@@ -1,1102 +1,434 @@
 /* =========================================================
-   VITACARE — COMPLETE SCRIPT.JS
+   VITACARE — COMPLETE SCRIPT
    ========================================================= */
+
+"use strict";
 
 
 /* =========================================================
-   01. WHATSAPP CONFIG
+   CONFIG
    ========================================================= */
 
 const WHATSAPP_NUMBER = "919693487083";
 
 
 /* =========================================================
-   02. COMPLETE TEST DATABASE
-   PRICE IS STORED ONLY FOR REFERENCE.
-   IT IS NEVER DISPLAYED OR SENT TO WHATSAPP.
+   TEST DATA
+   NOTE:
+   MRP is shown to the user.
+   Selling price is NOT used anywhere in the website.
    ========================================================= */
 
 const tests = [
 
-  { sn: 1, name: "ABSOLUTE EOSINOPHIL COUNT (AEC)", mrp: 150, price: 30 },
-  { sn: 2, name: "ABSOLUTE LYMPHOCYTE COUNT", mrp: 150, price: 30 },
-  { sn: 3, name: "Absolute Neutrophil Count EDTA", mrp: 150, price: 30 },
-  { sn: 4, name: "ACTIVATED PARTIAL THROMBOPLASTIN TIME (APTT)", mrp: 500, price: 100 },
-  { sn: 5, name: "ADENOSINE DEAMINASE (ADA)", mrp: 900, price: 130 },
-  { sn: 6, name: "ALANINE TRANSAMINASE (ALT/SGPT)", mrp: 150, price: 30 },
-  { sn: 7, name: "ALBUMIN", mrp: 200, price: 30 },
-  { sn: 8, name: "Alpha Feto Protein (AFP)", mrp: 1000, price: 250 },
-  { sn: 9, name: "AMYLASE SERUM", mrp: 700, price: 100 },
-  { sn: 10, name: "ANTI MULLERIAN HORMONE (AMH)", mrp: 2000, price: 550 },
-  { sn: 11, name: "ANTI NUCLEAR ANTIBODIES (ANA ELISA)", mrp: 1000, price: 200 },
-  { sn: 12, name: "ANTI NUCLEAR ANTIBODY (ANA )IFA", mrp: 1800, price: 400 },
-  { sn: 13, name: "BETA HUMAN CHORIONIC GONODOTROPIN HORMONE(bhCG) TOTAL", mrp: 500, price: 100 },
-  { sn: 14, name: "BILIRUBIN -TOTAL(TDI)", mrp: 150, price: 30 },
-  { sn: 15, name: "BILIRUBIN-DIRECT", mrp: 150, price: 30 },
-  { sn: 16, name: "BILIRUBIN-INDIRECT", mrp: 150, price: 30 },
-  { sn: 17, name: "BIOPSY (LARGE SPECIMEN)", mrp: 2000, price: 700 },
-  { sn: 18, name: "BIOPSY (MEDIUM SPECIMEN)", mrp: 1500, price: 450 },
-  { sn: 19, name: "BIOPSY-(SMALL SPECIMEN)", mrp: 800, price: 250 },
-  { sn: 20, name: "BLOOD CULTURE & SENSITIVITY", mrp: 800, price: 250 },
-  { sn: 21, name: "BLOOD GROUPING (ABO) & RH FACTOR", mrp: 100, price: 30 },
-  { sn: 22, name: "BLOOD SUGAR FASTING (BSF)", mrp: 100, price: 20 },
-  { sn: 23, name: "BLOOD SUGAR POSTPRANDIAL ( BSPP) - PP", mrp: 100, price: 20 },
-  { sn: 24, name: "BLOOD SUGAR RANDOM ( BSR)", mrp: 100, price: 20 },
-  { sn: 25, name: "BLOOD UREA NITROGEN (BUN)", mrp: 150, price: 30 },
-  { sn: 26, name: "C Reactive Protein-Quantitative (CRP)", mrp: 500, price: 100 },
-  { sn: 27, name: "CA 15.3", mrp: 1200, price: 300 },
-  { sn: 28, name: "CA 19.9", mrp: 1500, price: 250 },
-  { sn: 29, name: "CA-125 (OVARIAN CANCER MARKER)", mrp: 1000, price: 250 },
-  { sn: 30, name: "CHLORIDESERUM", mrp: 150, price: 30 },
-  { sn: 31, name: "CHOLESTEROL HDL", mrp: 150, price: 30 },
-  { sn: 32, name: "CHOLESTEROL-LDL", mrp: 150, price: 30 },
-  { sn: 33, name: "CHOLESTEROL-LDL DIRECT", mrp: 150, price: 30 },
-  { sn: 34, name: "COMPLETE BLOOD COUNT (CBC)", mrp: 300, price: 50 },
-  { sn: 35, name: "CREATINE KINASE -(CPK - MB)", mrp: 600, price: 120 },
-  { sn: 36, name: "CREATININE KINASE ( CPK)", mrp: 600, price: 120 },
-  { sn: 37, name: "CREATININE SERUM", mrp: 150, price: 30 },
-  { sn: 38, name: "CULTURE AND SENSITIVITY URINE", mrp: 500, price: 90 },
-  { sn: 39, name: "CULTURE AND SENSITIVITY( ANY)", mrp: 500, price: 150 },
-  { sn: 40, name: "D-DIMER", mrp: 1200, price: 400 },
-  { sn: 41, name: "DENGUE - IgG & IgM BY ELISA", mrp: 1200, price: 400 },
-  { sn: 42, name: "DENGUE - IgG & IgM BY RAPID CARD", mrp: 1000, price: 250 },
-  { sn: 43, name: "Dengue IgM (ELISA )", mrp: 600, price: 200 },
-  { sn: 44, name: "Dengue Antigen NS1 & IgG + IgM", mrp: 1800, price: 500 },
-  { sn: 45, name: "Dengue IgG (ELISA )", mrp: 600, price: 200 },
-  { sn: 46, name: "DENGUE NS1 ANTIGEN RAPID (TEST) BY CARD", mrp: 600, price: 200 },
+    { sn: 1, name: "ABSOLUTE EOSINOPHIL COUNT (AEC)", mrp: 150 },
+    { sn: 2, name: "ABSOLUTE LYMPHOCYTE COUNT", mrp: 150 },
+    { sn: 3, name: "Absolute Neutrophil Count EDTA", mrp: 150 },
+    { sn: 4, name: "ACTIVATED PARTIAL THROMBOPLASTIN TIME (APTT)", mrp: 500 },
+    { sn: 5, name: "ADENOSINE DEAMINASE (ADA)", mrp: 900 },
+    { sn: 6, name: "ALANINE TRANSAMINASE (ALT/SGPT)", mrp: 150 },
+    { sn: 7, name: "ALBUMIN", mrp: 200 },
+    { sn: 8, name: "Alpha Feto Protein (AFP)", mrp: 1000 },
+    { sn: 9, name: "AMYLASE SERUM", mrp: 700 },
+    { sn: 10, name: "ANTI MULLERIAN HORMONE (AMH)", mrp: 2000 },
+    { sn: 11, name: "ANTI NUCLEAR ANTIBODIES (ANA ELISA)", mrp: 1000 },
+    { sn: 12, name: "ANTI NUCLEAR ANTIBODY (ANA )IFA", mrp: 1800 },
+    { sn: 13, name: "BETA HUMAN CHORIONIC GONODOTROPIN HORMONE (bhCG) TOTAL", mrp: 500 },
+    { sn: 14, name: "BILIRUBIN -TOTAL(TDI)", mrp: 150 },
+    { sn: 15, name: "BILIRUBIN-DIRECT", mrp: 150 },
+    { sn: 16, name: "BILIRUBIN-INDIRECT", mrp: 150 },
+    { sn: 17, name: "BIOPSY (LARGE SPECIMEN)", mrp: 2000 },
+    { sn: 18, name: "BIOPSY (MEDIUM SPECIMEN)", mrp: 1500 },
+    { sn: 19, name: "BIOPSY-(SMALL SPECIMEN)", mrp: 800 },
+    { sn: 20, name: "BLOOD CULTURE & SENSITIVITY", mrp: 800 },
+    { sn: 21, name: "BLOOD GROUPING (ABO) & RH FACTOR", mrp: 100 },
+    { sn: 22, name: "BLOOD SUGAR FASTING (BSF)", mrp: 100 },
+    { sn: 23, name: "BLOOD SUGAR POSTPRANDIAL ( BSPP) - PP", mrp: 100 },
+    { sn: 24, name: "BLOOD SUGAR RANDOM ( BSR)", mrp: 100 },
+    { sn: 25, name: "BLOOD UREA NITROGEN (BUN)", mrp: 150 },
+    { sn: 26, name: "C Reactive Protein-Quantitative (CRP)", mrp: 500 },
+    { sn: 27, name: "CA 15.3", mrp: 1200 },
+    { sn: 28, name: "CA 19.9", mrp: 1500 },
+    { sn: 29, name: "CA-125 (OVARIAN CANCER MARKER)", mrp: 1000 },
+    { sn: 30, name: "CHLORIDE SERUM", mrp: 150 },
+    { sn: 31, name: "CHOLESTEROL HDL", mrp: 150 },
+    { sn: 32, name: "CHOLESTEROL-LDL", mrp: 150 },
+    { sn: 33, name: "CHOLESTEROL-LDL DIRECT", mrp: 150 },
+    { sn: 34, name: "COMPLETE BLOOD COUNT (CBC)", mrp: 300 },
+    { sn: 35, name: "CREATINE KINASE -(CPK - MB)", mrp: 600 },
+    { sn: 36, name: "CREATININE KINASE ( CPK)", mrp: 600 },
+    { sn: 37, name: "CREATININE SERUM", mrp: 150 },
+    { sn: 38, name: "CULTURE AND SENSITIVITY URINE", mrp: 500 },
+    { sn: 39, name: "CULTURE AND SENSITIVITY( ANY)", mrp: 500 },
+    { sn: 40, name: "D-DIMER", mrp: 1200 },
+    { sn: 41, name: "DENGUE - IgG & IgM BY ELISA", mrp: 1200 },
+    { sn: 42, name: "DENGUE - IgG & IgM BY RAPID CARD", mrp: 1000 },
+    { sn: 43, name: "Dengue IgM (ELISA)", mrp: 600 },
+    { sn: 44, name: "Dengue Antigen NS1 & IgG + IgM", mrp: 1800 },
+    { sn: 45, name: "Dengue IgG (ELISA)", mrp: 600 },
+    { sn: 46, name: "DENGUE NS1 ANTIGEN RAPID (TEST) BY CARD", mrp: 600 },
 
-  { sn: 47, name: "DIFFERENTIAL LEUCOCYTE COUNT", mrp: 150, price: 50 },
-  { sn: 48, name: "ERYTHROCYTE SEDIMENTATION RATE(ESR)", mrp: 150, price: 30 },
-  { sn: 49, name: "ERYTHROCYTE SEDIMENTATION RATE(ESR)", mrp: 150, price: 30 },
-  { sn: 50, name: "ESTRADIOL - II (E2)", mrp: 700, price: 150 },
-  { sn: 51, name: "FERRITIN", mrp: 700, price: 150 },
-  { sn: 52, name: "FLUID EXAMINATION -ROUTINE", mrp: 300, price: 80 },
-  { sn: 53, name: "FLUID EXAMINATION -ROUTINE( PLEURAL FLUID)", mrp: 500, price: 150 },
-  { sn: 54, name: "FOLIC ACID", mrp: 800, price: 200 },
-  { sn: 55, name: "FOLLICLE STIMULATING HORMONE (FSH)", mrp: 500, price: 100 },
-  { sn: 56, name: "FUNGAL STAIN", mrp: 600, price: 100 },
-  { sn: 57, name: "GLUCOSE CHALLENGE TEST(GCT)", mrp: 200, price: 50 },
-  { sn: 58, name: "Glucose Tolerance Test (GTT) - 5 Sample", mrp: 500, price: 100 },
-  { sn: 59, name: "GLUCOSE TOLERANCE TEST (GTT)-5 SAMPLE", mrp: 500, price: 100 },
-  { sn: 60, name: "Glucose Tolerance Test (OGTT) - 3Sample", mrp: 300, price: 60 },
-  { sn: 61, name: "GLUCOSE TOLERANCE TEST(GTT) -2 SAMPLE", mrp: 200, price: 40 },
-  { sn: 62, name: "GLYCOSYLATED HEMOGLOBIN (HBA1C)", mrp: 500, price: 100 },
-  { sn: 63, name: "GRAM STAIN", mrp: 350, price: 80 },
-  { sn: 64, name: "HAEMOGLOBIN (HB)", mrp: 150, price: 30 },
-  { sn: 65, name: "HAEMOGLOBIN ELECTROPHORESIS (HPLC)", mrp: 1000, price: 250 },
-  { sn: 66, name: "HEPATITIS B SURFACE ANTIBODY (HBsAb)", mrp: 1200, price: 250 },
-  { sn: 67, name: "HEPATITIS B SURFACE ANTIGEN (HBsAg) RAPID", mrp: 500, price: 80 },
+    { sn: 47, name: "DIFFERENTIAL LEUCOCYTE COUNT", mrp: 150 },
+    { sn: 48, name: "ERYTHROCYTE SEDIMENTATION RATE(ESR)", mrp: 150 },
+    { sn: 49, name: "ERYTHROCYTE SEDIMENTATION RATE(ESR)", mrp: 150 },
+    { sn: 50, name: "ESTRADIOL - II (E2)", mrp: 700 },
+    { sn: 51, name: "FERRITIN", mrp: 700 },
+    { sn: 52, name: "FLUID EXAMINATION -ROUTINE", mrp: 300 },
+    { sn: 53, name: "FLUID EXAMINATION -ROUTINE( PLEURAL FLUID)", mrp: 500 },
+    { sn: 54, name: "FOLIC ACID", mrp: 800 },
+    { sn: 55, name: "FOLLICLE STIMULATING HORMONE (FSH)", mrp: 500 },
+    { sn: 56, name: "FUNGAL STAIN", mrp: 600 },
+    { sn: 57, name: "GLUCOSE CHALLENGE TEST(GCT)", mrp: 200 },
+    { sn: 58, name: "Glucose Tolerance Test (GTT) - 5 Sample", mrp: 500 },
+    { sn: 59, name: "GLUCOSE TOLERANCE TEST (GTT)-5 SAMPLE", mrp: 500 },
+    { sn: 60, name: "Glucose Tolerance Test (OGTT) - 3Sample", mrp: 300 },
+    { sn: 61, name: "GLUCOSE TOLERANCE TEST(GTT) -2 SAMPLE", mrp: 200 },
+    { sn: 62, name: "GLYCOSYLATED HEMOGLOBIN (HBA1C)", mrp: 500 },
+    { sn: 63, name: "GRAM STAIN", mrp: 350 },
+    { sn: 64, name: "HAEMOGLOBIN (HB)", mrp: 150 },
+    { sn: 65, name: "HAEMOGLOBIN ELECTROPHORESIS (HPLC)", mrp: 1000 },
+    { sn: 66, name: "HEPATITIS B SURFACE ANTIBODY (HBsAb)", mrp: 1200 },
+    { sn: 67, name: "HEPATITIS B SURFACE ANTIGEN (HBsAg) RAPID", mrp: 500 },
+    { sn: 69, name: "HEPATITIS C VIRUS ANTIBODY(HCV) - RAPID CARD", mrp: 700 },
+    { sn: 70, name: "HEPATITIS-B SURFACE ANTIGEN (HBsAg) Elisa", mrp: 800 },
+    { sn: 71, name: "HIV ANTIBODY 1 & 2 RAPID", mrp: 500 },
+    { sn: 72, name: "HIV 1 & 2 ANTIBODY (ELISA)", mrp: 600 },
+    { sn: 73, name: "Immunoglobulin IgE", mrp: 700 },
+    { sn: 74, name: "INSULIN", mrp: 750 },
+    { sn: 75, name: "INSULIN - RANDOM", mrp: 750 },
+    { sn: 76, name: "IONIC CALCIUM", mrp: 500 },
+    { sn: 77, name: "IRON", mrp: 450 },
+    { sn: 78, name: "KIDNEY FUNCTION TEST (KFT)", mrp: 600 },
+    { sn: 79, name: "LIPASE SERUM", mrp: 700 },
+    { sn: 80, name: "LIPID PROFILE", mrp: 600 },
+    { sn: 81, name: "LIVER FUNCTION TEST (LFT)", mrp: 600 },
+    { sn: 82, name: "LUTEINISING HORMONE (LH)", mrp: 500 },
+    { sn: 83, name: "MAGNESIUM", mrp: 600 },
+    { sn: 84, name: "MALARIA ANTIGEN", mrp: 500 },
+    { sn: 85, name: "MANTOUX TEST TUBERCULIN SKIN TEST", mrp: 300 },
+    { sn: 86, name: "PERIPHERAL SMEAR EXAMINATION (PS)", mrp: 500 },
+    { sn: 87, name: "PHOSPHORUS SERUM", mrp: 150 },
+    { sn: 88, name: "PLATELET COUNT (PLT)", mrp: 150 },
+    { sn: 89, name: "PREGNANCY TEST URINE", mrp: 200 },
+    { sn: 90, name: "PROLACTIN (PRL)", mrp: 500 },
+    { sn: 91, name: "PROSTATE SPECIFIC ANTIGEN ( PSA) -FREE", mrp: 1000 },
+    { sn: 92, name: "PROSTATE SPECIFIC ANTIGEN (PSA) - TOTAL", mrp: 700 },
+    { sn: 93, name: "PROTHROMBIN TIMR (PT -INR)", mrp: 600 },
 
-  { sn: 69, name: "HEPATITIS C VIRUS ANTIBODY(HCV) - RAPID CARD", mrp: 700, price: 80 },
-  { sn: 70, name: "HEPATITIS-B SURFACE ANTIGEN (HBsAg) Elisa", mrp: 800, price: 150 },
-  { sn: 71, name: "HIV ANTIBODY 1 & 2 RAPID", mrp: 500, price: 80 },
-  { sn: 72, name: "HIV 1 & 2 ANTIBODY (ELISA)", mrp: 600, price: 150 },
-  { sn: 73, name: "Immunoglobulin IgE", mrp: 700, price: 120 },
-  { sn: 74, name: "INSULIN", mrp: 750, price: 150 },
-  { sn: 75, name: "INSULIN - RANDOM", mrp: 750, price: 150 },
-  { sn: 76, name: "IONIC CALCIUM", mrp: 500, price: 150 },
-  { sn: 77, name: "IRON", mrp: 450, price: 80 },
-  { sn: 78, name: "KIDNEY FUNCTION TEST (KFT)", mrp: 600, price: 80 },
-  { sn: 79, name: "LIPASE SERUM", mrp: 700, price: 100 },
-  { sn: 80, name: "LIPID PROFILE", mrp: 600, price: 80 },
-  { sn: 81, name: "LIVER FUNCTION TEST (LFT)", mrp: 600, price: 80 },
-  { sn: 82, name: "LUTEINISING HORMONE (LH)", mrp: 500, price: 100 },
-  { sn: 83, name: "MAGNESIUM", mrp: 600, price: 100 },
-  { sn: 84, name: "MALARIA ANTIGEN", mrp: 500, price: 100 },
-  { sn: 85, name: "MANTOUX TEST TUBERCULIN SKIN TEST", mrp: 300, price: 100 },
-  { sn: 86, name: "PERIPHERAL SMEAR EXAMINATION (PS)", mrp: 500, price: 50 },
-  { sn: 87, name: "PHOSPHORUS SERUM", mrp: 150, price: 30 },
-  { sn: 88, name: "PLATELET COUNT (PLT)", mrp: 150, price: 30 },
-  { sn: 89, name: "PREGNANCY TEST URINE", mrp: 200, price: 50 },
-  { sn: 90, name: "PROLACTIN (PRL)", mrp: 500, price: 100 },
-  { sn: 91, name: "PROSTATE SPECIFIC ANTIGEN ( PSA) -FREE", mrp: 1000, price: 300 },
-  { sn: 92, name: "PROSTATE SPECIFIC ANTIGEN (PSA) - TOTAL", mrp: 700, price: 150 },
-  { sn: 93, name: "PROTHROMBIN TIMR (PT -INR)", mrp: 600, price: 100 },
+    { sn: 94, name: "Rheumatoid Factor Quantitative", mrp: 600 },
+    { sn: 95, name: "SEMEN ANALYSIS", mrp: 700 },
+    { sn: 96, name: "SEMEN CULTURE & SENSITIVITY", mrp: 500 },
+    { sn: 97, name: "SERUM POTASSIUM", mrp: 150 },
+    { sn: 98, name: "SODIUM SERUM", mrp: 150 },
+    { sn: 99, name: "SPUTUM CULTURE & SENSITIVITY", mrp: 500 },
+    { sn: 100, name: "STOOL CULTURE & SENSITIVITY", mrp: 500 },
+    { sn: 101, name: "STOOL EXAMINATION R/M", mrp: 159 },
+    { sn: 102, name: "STOOL FOR OCCULT BLOOD", mrp: 400 },
+    { sn: 103, name: "TESTOSTERONE - TOTAL", mrp: 700 },
+    { sn: 104, name: "TESTOSTERONE- FREE", mrp: 1800 },
+    { sn: 105, name: "THYROID STIMULATING HORMONE (TSH)", mrp: 300 },
+    { sn: 106, name: "THYROXINE FREE (FT4)", mrp: 300 },
+    { sn: 107, name: "THYROXINE-TOTAL (TT4)", mrp: 150 },
+    { sn: 108, name: "TOTAL CALCIUM", mrp: 150 },
+    { sn: 109, name: "TOTAL CHOLESTEROL", mrp: 150 },
+    { sn: 110, name: "TOTAL IgE LEVEL", mrp: 800 },
+    { sn: 111, name: "TOTAL LECUCYTE COUNT( TLC)", mrp: 150 },
+    { sn: 112, name: "TOTAL PROTEIN", mrp: 150 },
+    { sn: 113, name: "TRIGLYCERIDES (TG)", mrp: 150 },
+    { sn: 114, name: "TRIIODOTHYRONINE (FT3)FT3", mrp: 200 },
+    { sn: 115, name: "TRI-IODOTHYRONINE (TT3)", mrp: 150 },
+    { sn: 116, name: "TROPONIN - I", mrp: 1500 },
+    { sn: 117, name: "TROPONIN - T", mrp: 1500 },
+    { sn: 118, name: "TUBERCULOSIS -GAMMA INTERFERON ( TB-GOLD)", mrp: 2500 },
+    { sn: 119, name: "TYPHI DOT IgG/IgM", mrp: 600 },
+    { sn: 120, name: "UREA SERUM", mrp: 150 },
+    { sn: 121, name: "URIC ACID SERUM", mrp: 150 },
+    { sn: 122, name: "VDRL TITRE", mrp: 400 },
+    { sn: 123, name: "VITAMIN B12", mrp: 1000 },
+    { sn: 124, name: "VITAMIN D 3", mrp: 1500 },
+    { sn: 125, name: "WIDAL TEST (SLIDE SEMI QUANTITATIVE METHOD)", mrp: 200 },
+    { sn: 126, name: "WIDAL TEST (TUBE METHOD)", mrp: 350 },
 
-  { sn: 94, name: "Rheumatoid Factor Quantitative", mrp: 600, price: 100 },
-  { sn: 95, name: "SEMEN ANALYSIS", mrp: 700, price: 100 },
-  { sn: 96, name: "SEMEN CULTURE & SENSITIVITY", mrp: 500, price: 100 },
-  { sn: 97, name: "SERUM POTASSIUM", mrp: 150, price: 30 },
-  { sn: 98, name: "SODIUM SERUM", mrp: 150, price: 30 },
-  { sn: 99, name: "SPUTUM CULTURE & SENSITIVITY", mrp: 500, price: 100 },
-  { sn: 100, name: "STOOL CULTURE & SENSITIVITY", mrp: 500, price: 80 },
-  { sn: 101, name: "STOOL EXAMINATION R/M", mrp: 159, price: 30 },
-  { sn: 102, name: "STOOL FOR OCCULT BLOOD", mrp: 400, price: 40 },
-  { sn: 103, name: "TESTOSTERONE - TOTAL", mrp: 700, price: 150 },
-  { sn: 104, name: "TESTOSTERONE- FREE", mrp: 1800, price: 300 },
-  { sn: 105, name: "THYROID STIMULATING HORMONE (TSH)", mrp: 300, price: 30 },
-  { sn: 106, name: "THYROXINE FREE (FT4)", mrp: 300, price: 50 },
-  { sn: 107, name: "THYROXINE-TOTAL (TT4)", mrp: 150, price: 30 },
-  { sn: 108, name: "TOTAL CALCIUM", mrp: 150, price: 30 },
-  { sn: 109, name: "TOTAL CHOLESTEROL", mrp: 150, price: 30 },
-  { sn: 110, name: "TOTAL IgE LEVEL", mrp: 800, price: 130 },
-  { sn: 111, name: "TOTAL LECUCYTE COUNT( TLC)", mrp: 150, price: 30 },
-  { sn: 112, name: "TOTAL PROTEIN", mrp: 150, price: 30 },
-  { sn: 113, name: "TRIGLYCERIDES (TG)", mrp: 150, price: 40 },
-  { sn: 114, name: "TRIIODOTHYRONINE (FT3)FT3", mrp: 200, price: 50 },
-  { sn: 115, name: "TRI-IODOTHYRONINE (TT3)", mrp: 150, price: 40 },
-  { sn: 116, name: "TROPONIN - I", mrp: 1500, price: 400 },
-  { sn: 117, name: "TROPONIN - T", mrp: 1500, price: 400 },
-  { sn: 118, name: "TUBERCULOSIS -GAMMA INTERFERON ( TB-GOLD)", mrp: 2500, price: 650 },
-  { sn: 119, name: "TYPHI DOT IgG/IgM", mrp: 600, price: 150 },
-  { sn: 120, name: "UREA SERUM", mrp: 150, price: 30 },
-  { sn: 121, name: "URIC ACID SERUM", mrp: 150, price: 30 },
-  { sn: 122, name: "VDRL TITRE", mrp: 400, price: 150 },
-  { sn: 123, name: "VITAMIN B12", mrp: 1000, price: 100 },
-  { sn: 124, name: "VITAMIN D 3", mrp: 1500, price: 200 },
-  { sn: 125, name: "WIDAL TEST (SLIDE SEMI QUANTITATIVE METHOD)", mrp: 200, price: 30 },
-  { sn: 126, name: "WIDAL TEST (TUBE METHOD)", mrp: 350, price: 150 },
-  { sn: 127, name: "ALLERGY COMPREHENSIVE PROFILE", mrp: 7000, price: 1500 },
-  { sn: 128, name: "ANTENATAL PROFILE ADVANCE", mrp: 3200, price: 900 },
-  { sn: 129, name: "Antenatal Profile Basic", mrp: 1800, price: 450 },
-
-  { sn: 132, name: "COAGULATION PROFILE BASIC", mrp: 1200, price: 200 },
-  { sn: 133, name: "COMPLETE BLOOD COUNT WITH ESR .", mrp: 400, price: 80 },
-  { sn: 134, name: "COMPLETE HAEMOGRAM", mrp: 400, price: 100 },
-
-  { sn: 142, name: "IRON PROFILE -I", mrp: 600, price: 150 },
-  { sn: 144, name: "MATERNAL SCREENING DUAL MARKER WITH GRAPH", mrp: 2000, price: 600 },
-  { sn: 145, name: "MATERNAL SCREENING QUADRUPLE MARKER", mrp: 3500, price: 1150 },
-  { sn: 146, name: "MATERNAL SCREENING TRIPLE MARKER WITH GRAPH", mrp: 2100, price: 650 },
-  { sn: 147, name: "THYROID PROFILE FREE (FT3 FT4 TSH )", mrp: 600, price: 150 },
-  { sn: 148, name: "THYROID PROFILE TOTAL (T3T4TSH)(TFT)", mrp: 400, price: 90 },
-  { sn: 149, name: "VIRAL MARKER QUANTITATIVE", mrp: 2000, price: 450 },
-  { sn: 151, name: "VIRAL MARKER QUALITATIVE", mrp: 1500, price: 280 }
+    { sn: 127, name: "ALLERGY COMPREHENSIVE PROFILE", mrp: 7000 },
+    { sn: 128, name: "ANTENATAL PROFILE ADVANCE", mrp: 3200 },
+    { sn: 129, name: "Antenatal Profile Basic", mrp: 1800 },
+    { sn: 132, name: "COAGULATION PROFILE BASIC", mrp: 1200 },
+    { sn: 133, name: "COMPLETE BLOOD COUNT WITH ESR.", mrp: 400 },
+    { sn: 134, name: "COMPLETE HAEMOGRAM", mrp: 400 },
+    { sn: 142, name: "IRON PROFILE -I", mrp: 600 },
+    { sn: 144, name: "MATERNAL SCREENING DUAL MARKER WITH GRAPH", mrp: 2000 },
+    { sn: 145, name: "MATERNAL SCREENING QUADRUPLE MARKER", mrp: 3500 },
+    { sn: 146, name: "MATERNAL SCREENING TRIPLE MARKER WITH GRAPH", mrp: 2100 },
+    { sn: 147, name: "THYROID PROFILE FREE (FT3 FT4 TSH)", mrp: 600 },
+    { sn: 148, name: "THYROID PROFILE TOTAL (T3T4TSH)(TFT)", mrp: 400 },
+    { sn: 149, name: "VIRAL MARKER QUANTITATIVE", mrp: 2000 },
+    { sn: 151, name: "VIRAL MARKER QUALITATIVE", mrp: 1500 }
 
 ];
 
 
 /* =========================================================
-   03. FEATURED PACKAGES
-   ONLY MRP
+   FEATURED PACKAGES
    ========================================================= */
 
 const featuredPackages = [
 
-  {
-    sn: 152,
-    name: "Viral Marker Quantitative with VDRL",
-    mrp: 2000
-  },
+    {
+        sn: 152,
+        name: "Viral Marker Quantitative with VDRL",
+        mrp: 2000
+    },
 
-  {
-    sn: 153,
-    name: "BSD Health Package Basic",
-    mrp: 1500
-  },
+    {
+        sn: 153,
+        name: "BSD Health Package Basic",
+        mrp: 1500
+    },
 
-  {
-    sn: 154,
-    name: "BSD Health Package Advance",
-    mrp: 2899
-  }
+    {
+        sn: 154,
+        name: "BSD Health Package Advance",
+        mrp: 2899
+    }
 
 ];
 
 
 /* =========================================================
-   04. SELECTED ITEM
+   SELECTED ITEMS
    ========================================================= */
 
-let selectedItem = null;
+let selectedItems = [];
 
 
 /* =========================================================
-   05. DOM ELEMENTS
+   DOM READY
    ========================================================= */
 
-const testCatalogue =
-  document.getElementById("testCatalogue");
+document.addEventListener("DOMContentLoaded", () => {
 
-const testSearch =
-  document.getElementById("testSearch");
+    renderTests(tests);
 
-const clearSearch =
-  document.getElementById("clearSearch");
+    setupSearch();
 
-const testCount =
-  document.getElementById("testCount");
+    setupFeaturedPackages();
 
-const noResults =
-  document.getElementById("noResults");
+    setupBookingForm();
 
-const selectedSummary =
-  document.getElementById("selectedSummary");
+    setupContinueBooking();
 
-const selectedCount =
-  document.getElementById("selectedCount");
+    setupMobileMenu();
 
-const selectedTestName =
-  document.getElementById("selectedTestName");
+    setupScrollProgress();
 
-const continueBooking =
-  document.getElementById("continueBooking");
+    setupRevealAnimation();
 
-const bookingForm =
-  document.getElementById("bookingForm");
+    setupCursorGlow();
 
-const bookingSelection =
-  document.getElementById("bookingSelection");
+    setupHeroParallax();
 
-const selectedBookingTests =
-  document.getElementById("selectedBookingTests");
+    setupPhoneInput();
 
-const selectedBookingSN =
-  document.getElementById("selectedBookingSN");
+    setupAgeInput();
 
-const selectedBookingMRP =
-  document.getElementById("selectedBookingMRP");
+    updateBookingUI();
 
-const formStatus =
-  document.getElementById("formStatus");
-
-const menuToggle =
-  document.getElementById("menuToggle");
-
-const navLinks =
-  document.getElementById("navLinks");
-
-const progressBar =
-  document.getElementById("progressBar");
-
-const cursorGlow =
-  document.querySelector(".cursor-glow");
-
-const heroStage =
-  document.querySelector(".hero-stage");
+});
 
 
 /* =========================================================
-   06. PRICE FORMAT
+   GET TEST BY SERIAL NUMBER
    ========================================================= */
 
-function formatPrice(value) {
+function findTestBySN(sn) {
 
-  return new Intl.NumberFormat("en-IN").format(value);
+    const number = Number(sn);
+
+    return tests.find(test => test.sn === number) ||
+           featuredPackages.find(test => test.sn === number) ||
+           null;
 
 }
 
 
 /* =========================================================
-   07. SECURITY / HTML ESCAPE
-   ========================================================= */
-
-function escapeHTML(value) {
-
-  const div =
-    document.createElement("div");
-
-  div.textContent =
-    value;
-
-  return div.innerHTML;
-
-}
-
-
-/* =========================================================
-   08. RENDER ALL TESTS
-   IMPORTANT:
-   ONLY MRP IS SHOWN.
-   PRICE IS NOT SHOWN.
+   RENDER ALL TESTS
    ========================================================= */
 
 function renderTests(list = tests) {
 
-  if (!testCatalogue) {
-    return;
-  }
+    const catalogue = document.getElementById("testCatalogue");
+    const testCount = document.getElementById("testCount");
+    const noResults = document.getElementById("noResults");
 
-  testCatalogue.innerHTML = "";
+    if (!catalogue) return;
 
-  if (testCount) {
-    testCount.textContent =
-      list.length;
-  }
+    catalogue.innerHTML = "";
 
-  if (!list.length) {
+    if (testCount) {
+        testCount.textContent = list.length;
+    }
+
+    if (list.length === 0) {
+
+        catalogue.style.display = "none";
+
+        if (noResults) {
+            noResults.hidden = false;
+        }
+
+        return;
+    }
+
+    catalogue.style.display = "";
 
     if (noResults) {
-      noResults.hidden = false;
-    }
-
-    return;
-  }
-
-  if (noResults) {
-    noResults.hidden = true;
-  }
-
-
-  const fragment =
-    document.createDocumentFragment();
-
-
-  list.forEach((test) => {
-
-    const card =
-      document.createElement("article");
-
-
-    card.className =
-      "test-card reveal-up";
-
-
-    card.dataset.sn =
-      test.sn;
-
-
-    const isSelected =
-      selectedItem &&
-      selectedItem.sn === test.sn &&
-      selectedItem.type === "test";
-
-
-    if (isSelected) {
-      card.classList.add("selected");
+        noResults.hidden = true;
     }
 
 
-    card.innerHTML = `
+    list.forEach(test => {
 
-      <div class="test-number">
-        ${test.sn}
-      </div>
+        const isSelected = selectedItems.some(
+            item => item.sn === test.sn
+        );
 
+        const card = document.createElement("article");
 
-      <div class="test-info">
+        card.className = "test-card";
 
-        <small>
-          TEST ${test.sn}
-        </small>
-
-
-        <h3>
-          ${escapeHTML(test.name)}
-        </h3>
+        if (isSelected) {
+            card.classList.add("selected");
+        }
 
 
-        <!-- ONLY MRP -->
-        <div class="test-prices">
-
-          <span class="test-mrp">
-
-            MRP:
-
-            <strong>
-              ₹${formatPrice(test.mrp)}
-            </strong>
-
-          </span>
-
-        </div>
-
-      </div>
+        card.dataset.sn = test.sn;
 
 
-      <button
-        type="button"
-        class="test-select"
-        data-test-select="${test.sn}"
-      >
+        card.innerHTML = `
 
-        ${isSelected ? "Selected" : "Select"}
+            <div class="test-number">
+                ${test.sn}
+            </div>
 
-      </button>
+            <div class="test-info">
 
-    `;
+                <h3>
+                    ${escapeHTML(test.name)}
+                </h3>
 
+                <small>
+                    Diagnostic Test
+                </small>
 
-    fragment.appendChild(card);
+            </div>
 
-  });
+            <div class="test-prices">
 
+                <span class="test-mrp">
+                    ₹${formatNumber(test.mrp)}
+                </span>
 
-  testCatalogue.appendChild(fragment);
+                <button
+                    type="button"
+                    class="test-select"
+                    data-sn="${test.sn}"
+                >
+                    ${isSelected ? "Selected" : "Select"}
+                </button>
 
+            </div>
 
-  requestAnimationFrame(() => {
-
-    document
-      .querySelectorAll(
-        "#testCatalogue .reveal-up"
-      )
-      .forEach((element, index) => {
-
-        setTimeout(() => {
-
-          element.classList.add(
-            "visible"
-          );
-
-        }, Math.min(index * 15, 300));
-
-      });
-
-  });
-
-}
+        `;
 
 
-/* =========================================================
-   09. SEARCH
-   ========================================================= */
+        const selectButton = card.querySelector(".test-select");
 
-function searchTests() {
+        selectButton.addEventListener("click", (event) => {
 
-  if (!testSearch) {
-    return;
-  }
+            event.stopPropagation();
 
+            toggleTest(test.sn);
 
-  const query =
-    testSearch.value
-      .trim()
-      .toLowerCase();
+        });
 
 
-  if (!query) {
+        card.addEventListener("click", () => {
 
-    renderTests(tests);
+            toggleTest(test.sn);
 
-    return;
-  }
-
-
-  const filtered =
-    tests.filter((test) => {
-
-      const name =
-        test.name.toLowerCase();
-
-      const number =
-        String(test.sn);
+        });
 
 
-      return (
-        name.includes(query) ||
-        number.includes(query)
-      );
+        catalogue.appendChild(card);
 
     });
 
-
-  renderTests(filtered);
-
 }
 
 
 /* =========================================================
-   10. CLEAR SEARCH
+   TOGGLE TEST
    ========================================================= */
 
-function clearTestSearch() {
+function toggleTest(sn) {
 
-  if (!testSearch) {
-    return;
-  }
+    const number = Number(sn);
 
-
-  testSearch.value = "";
-
-  renderTests(tests);
-
-  testSearch.focus();
-
-}
-
-
-/* =========================================================
-   11. SELECT NORMAL TEST
-   ========================================================= */
-
-function selectTest(sn) {
-
-  const test =
-    tests.find(
-      item =>
-        item.sn === Number(sn)
+    const existingIndex = selectedItems.findIndex(
+        item => item.sn === number
     );
 
 
-  if (!test) {
-    return;
-  }
+    if (existingIndex !== -1) {
 
+        selectedItems.splice(existingIndex, 1);
 
-  selectedItem = {
+    } else {
 
-    type: "test",
+        const test = findTestBySN(number);
 
-    sn: test.sn,
+        if (!test) return;
 
-    name: test.name,
+        selectedItems.push({
+            sn: test.sn,
+            name: test.name,
+            mrp: test.mrp
+        });
 
-    mrp: test.mrp
-
-  };
-
-
-  updateBookingUI();
-
-}
-
-
-/* =========================================================
-   12. SELECT FEATURED PACKAGE
-   152 / 153 / 154
-   ONLY MRP
-   ========================================================= */
-
-function selectFeaturedPackage(data) {
-
-  selectedItem = {
-
-    type: "package",
-
-    sn: Number(data.sn),
-
-    name: data.name,
-
-    mrp: Number(data.mrp)
-
-  };
-
-
-  updateBookingUI();
-
-}
-
-
-/* =========================================================
-   13. UPDATE BOOKING UI
-   ========================================================= */
-
-function updateBookingUI() {
-
-  if (!selectedItem) {
-    return;
-  }
-
-
-  /* -----------------------------------------
-     SELECTED SUMMARY
-  ----------------------------------------- */
-
-  if (selectedSummary) {
-
-    selectedSummary.hidden = false;
-
-  }
-
-
-  if (selectedCount) {
-
-    selectedCount.textContent =
-      "1 item selected";
-
-  }
-
-
-  if (selectedTestName) {
-
-    selectedTestName.textContent =
-      selectedItem.name;
-
-  }
-
-
-  /* -----------------------------------------
-     BOOKING FORM SELECTION
-     ONLY MRP
-  ----------------------------------------- */
-
-  if (bookingSelection) {
-
-    bookingSelection.innerHTML = `
-
-      <div class="booking-selected-item">
-
-        <div>
-
-          <span>
-
-            SELECTED ${selectedItem.type === "package"
-        ? "PACKAGE"
-        : "TEST"
-      }
-
-          </span>
-
-
-          <strong>
-            ${escapeHTML(
-        selectedItem.name
-      )}
-          </strong>
-
-        </div>
-
-
-        <small>
-
-          MRP ₹${formatPrice(
-        selectedItem.mrp
-      )}
-
-        </small>
-
-      </div>
-
-    `;
-
-  }
-
-
-  /* -----------------------------------------
-     HIDDEN FORM DATA
-  ----------------------------------------- */
-
-  if (selectedBookingTests) {
-
-    selectedBookingTests.value =
-      selectedItem.name;
-
-  }
-
-
-  if (selectedBookingSN) {
-
-    selectedBookingSN.value =
-      selectedItem.sn;
-
-  }
-
-
-  if (selectedBookingMRP) {
-
-    selectedBookingMRP.value =
-      selectedItem.mrp;
-
-  }
-
-
-  /* -----------------------------------------
-     SCROLL TO BOOKING
-  ----------------------------------------- */
-
-  const booking =
-    document.getElementById("booking");
-
-
-  if (booking) {
-
-    setTimeout(() => {
-
-      booking.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-
-    }, 250);
-
-  }
-
-}
-
-
-/* =========================================================
-   14. CONTINUE BUTTON
-   ========================================================= */
-
-function goToBooking() {
-
-  if (!selectedItem) {
-
-    alert(
-      "Please select a test or package first."
-    );
-
-    return;
-  }
-
-
-  const booking =
-    document.getElementById("booking");
-
-
-  if (booking) {
-
-    booking.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-  }
-
-}
-
-
-/* =========================================================
-   15. WHATSAPP BOOKING
-   IMPORTANT:
-   NO PRICE.
-   ONLY MRP.
-   ========================================================= */
-
-function submitBooking(event) {
-
-  event.preventDefault();
-
-
-  if (!selectedItem) {
-
-    showFormError(
-      "Please select a test or package first."
-    );
-
-    return;
-  }
-
-
-  const nameInput =
-    document.getElementById("name");
-
-  const phoneInput =
-    document.getElementById("phone");
-
-  const cityInput =
-    document.getElementById("city");
-
-
-  const name =
-    nameInput
-      ? nameInput.value.trim()
-      : "";
-
-
-  const phone =
-    phoneInput
-      ? phoneInput.value.trim()
-      : "";
-
-
-  const city =
-    cityInput
-      ? cityInput.value.trim()
-      : "";
-
-
-  /* -----------------------------------------
-     VALIDATE NAME
-  ----------------------------------------- */
-
-  if (name.length < 2) {
-
-    showFormError(
-      "Please enter your full name."
-    );
-
-    if (nameInput) {
-      nameInput.focus();
     }
 
-    return;
-  }
 
+    updateBookingUI();
 
-  /* -----------------------------------------
-     VALIDATE MOBILE
-  ----------------------------------------- */
-
-  if (!/^[0-9]{10}$/.test(phone)) {
-
-    showFormError(
-      "Please enter a valid 10-digit mobile number."
-    );
-
-    if (phoneInput) {
-      phoneInput.focus();
-    }
-
-    return;
-  }
-
-
-  /* -----------------------------------------
-     VALIDATE CITY
-  ----------------------------------------- */
-
-  if (city.length < 2) {
-
-    showFormError(
-      "Please enter your city."
-    );
-
-    if (cityInput) {
-      cityInput.focus();
-    }
-
-    return;
-  }
-
-
-  /* -----------------------------------------
-     WHATSAPP MESSAGE
-     
-     PRICE IS COMPLETELY REMOVED.
-     ONLY MRP.
-  ----------------------------------------- */
-
-  const itemType =
-    selectedItem.type === "package"
-      ? "Package"
-      : "Test";
-
-
-  const message =
-
-    `Hello VitaCare,
-
-I want to book a health ${itemType.toLowerCase()}.
-
-Full Name: ${name}
-Mobile Number: ${phone}
-City: ${city}
-
-Selected ${itemType}:
-${selectedItem.name}
-
-Serial Number: ${selectedItem.sn}
-MRP: ₹${formatPrice(selectedItem.mrp)}
-
-Please confirm my booking.
-Thank you.`;
-
-
-  /* -----------------------------------------
-     WHATSAPP URL
-  ----------------------------------------- */
-
-  const whatsappURL =
-    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-      message
-    )}`;
-
-
-  /* -----------------------------------------
-     STATUS
-  ----------------------------------------- */
-
-  if (formStatus) {
-
-    formStatus.style.color =
-      "#0a9f70";
-
-    formStatus.textContent =
-      "Opening WhatsApp...";
-
-  }
-
-
-  /* -----------------------------------------
-     OPEN WHATSAPP
-  ----------------------------------------- */
-
-  window.open(
-    whatsappURL,
-    "_blank",
-    "noopener,noreferrer"
-  );
+    refreshVisibleTestSelection();
 
 }
 
 
 /* =========================================================
-   16. FORM ERROR
-   ========================================================= */
-
-function showFormError(message) {
-
-  if (!formStatus) {
-
-    alert(message);
-
-    return;
-  }
-
-
-  formStatus.style.color =
-    "#d94b4b";
-
-
-  formStatus.textContent =
-    message;
-
-}
-
-
-/* =========================================================
-   17. FEATURED PACKAGE BUTTONS
+   FEATURED PACKAGE SETUP
    ========================================================= */
 
 function setupFeaturedPackages() {
 
-  const buttons =
-    document.querySelectorAll(
-      "[data-featured-select='true']"
+    const buttons = document.querySelectorAll(
+        "[data-featured-select='true']"
     );
 
+    buttons.forEach(button => {
 
-  buttons.forEach((button) => {
+        button.addEventListener("click", (event) => {
 
-    button.addEventListener(
-      "click",
-      () => {
+            event.preventDefault();
 
-        selectFeaturedPackage({
+            event.stopPropagation();
 
-          sn:
-            button.dataset.sn,
+            const sn = Number(button.dataset.sn);
 
-          name:
-            button.dataset.name,
-
-          mrp:
-            button.dataset.mrp
+            toggleTest(sn);
 
         });
-
-      }
-    );
-
-  });
-
-}
-
-
-/* =========================================================
-   18. TEST SELECT BUTTONS
-   ========================================================= */
-
-function setupTestSelection() {
-
-  if (!testCatalogue) {
-    return;
-  }
-
-
-  testCatalogue.addEventListener(
-    "click",
-    (event) => {
-
-      const button =
-        event.target.closest(
-          "[data-test-select]"
-        );
-
-
-      if (!button) {
-        return;
-      }
-
-
-      const sn =
-        button.dataset.testSelect;
-
-
-      selectTest(sn);
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   19. SEARCH EVENTS
-   ========================================================= */
-
-if (testSearch) {
-
-  testSearch.addEventListener(
-    "input",
-    searchTests
-  );
-
-}
-
-
-if (clearSearch) {
-
-  clearSearch.addEventListener(
-    "click",
-    clearTestSearch
-  );
-
-}
-
-
-/* =========================================================
-   20. CONTINUE BOOKING BUTTON
-   ========================================================= */
-
-if (continueBooking) {
-
-  continueBooking.addEventListener(
-    "click",
-    goToBooking
-  );
-
-}
-
-
-/* =========================================================
-   21. BOOKING FORM
-   ========================================================= */
-
-if (bookingForm) {
-
-  bookingForm.addEventListener(
-    "submit",
-    submitBooking
-  );
-
-}
-
-
-/* =========================================================
-   22. MOBILE MENU
-   ========================================================= */
-
-if (menuToggle && navLinks) {
-
-  menuToggle.addEventListener(
-    "click",
-    () => {
-
-      navLinks.classList.toggle(
-        "active"
-      );
-
-    }
-  );
-
-
-  navLinks
-    .querySelectorAll("a")
-    .forEach((link) => {
-
-      link.addEventListener(
-        "click",
-        () => {
-
-          navLinks.classList.remove(
-            "active"
-          );
-
-        }
-      );
 
     });
 
@@ -1104,263 +436,926 @@ if (menuToggle && navLinks) {
 
 
 /* =========================================================
-   23. SCROLL PROGRESS BAR
+   UPDATE VISIBLE TEST SELECTION
    ========================================================= */
 
-function updateProgress() {
+function refreshVisibleTestSelection() {
 
-  if (!progressBar) {
-    return;
-  }
+    const cards = document.querySelectorAll(".test-card");
 
+    cards.forEach(card => {
 
-  const scrollTop =
-    window.scrollY;
+        const sn = Number(card.dataset.sn);
 
+        const isSelected = selectedItems.some(
+            item => item.sn === sn
+        );
 
-  const totalHeight =
-    document.documentElement.scrollHeight -
-    window.innerHeight;
+        const button = card.querySelector(".test-select");
 
+        card.classList.toggle("selected", isSelected);
 
-  const percentage =
-    totalHeight > 0
-      ? (scrollTop / totalHeight) * 100
-      : 0;
+        if (button) {
+            button.textContent = isSelected
+                ? "Selected"
+                : "Select";
+        }
 
-
-  progressBar.style.width =
-    `${percentage}%`;
+    });
 
 }
 
 
-window.addEventListener(
-  "scroll",
-  updateProgress,
-  {
-    passive: true
-  }
-);
+/* =========================================================
+   UPDATE BOOKING UI
+   ========================================================= */
+
+function updateBookingUI() {
+
+    const countElement = document.getElementById("selectedCount");
+
+    const selectedNameElement =
+        document.getElementById("selectedTestName");
+
+    const bookingList =
+        document.getElementById("selectedBookingTests");
+
+    const bookingEmpty =
+        document.getElementById("selectedBookingEmpty");
+
+    const bookingCount =
+        document.getElementById("selectedBookingCount");
+
+
+    /* -------------------------
+       COUNT
+       ------------------------- */
+
+    if (countElement) {
+        countElement.textContent = selectedItems.length;
+    }
+
+    if (bookingCount) {
+
+        bookingCount.textContent =
+            `${selectedItems.length} selected`;
+
+    }
+
+
+    /* -------------------------
+       SUMMARY NAME
+       ------------------------- */
+
+    if (selectedNameElement) {
+
+        if (selectedItems.length === 0) {
+
+            selectedNameElement.textContent =
+                "No test selected";
+
+        } else if (selectedItems.length === 1) {
+
+            selectedNameElement.textContent =
+                selectedItems[0].name;
+
+        } else {
+
+            selectedNameElement.textContent =
+                `${selectedItems.length} tests/packages selected`;
+
+        }
+
+    }
+
+
+    /* -------------------------
+       BOOKING LIST
+       ------------------------- */
+
+    if (bookingList) {
+
+        bookingList.innerHTML = "";
+
+        selectedItems.forEach(item => {
+
+            const row = document.createElement("div");
+
+            row.className = "selected-booking-item";
+
+
+            row.innerHTML = `
+
+                <div class="selected-booking-item-info">
+
+                    <div class="selected-booking-item-number">
+                        ${item.sn}
+                    </div>
+
+                    <div class="selected-booking-item-text">
+
+                        <strong>
+                            ${escapeHTML(item.name)}
+                        </strong>
+
+                        <span>
+                            MRP ₹${formatNumber(item.mrp)}
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <span class="selected-booking-item-mrp">
+                    MRP ₹${formatNumber(item.mrp)}
+                </span>
+
+                <button
+                    type="button"
+                    class="selected-booking-remove"
+                    data-remove-sn="${item.sn}"
+                    aria-label="Remove ${escapeHTML(item.name)}"
+                    title="Remove"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            `;
+
+
+            const removeButton =
+                row.querySelector(".selected-booking-remove");
+
+
+            removeButton.addEventListener("click", () => {
+
+                removeSelectedItem(item.sn);
+
+            });
+
+
+            bookingList.appendChild(row);
+
+        });
+
+    }
+
+
+    /* -------------------------
+       EMPTY STATE
+       ------------------------- */
+
+    if (bookingEmpty) {
+
+        bookingEmpty.style.display =
+            selectedItems.length === 0
+                ? "flex"
+                : "none";
+
+    }
+
+}
 
 
 /* =========================================================
-   24. SCROLL REVEAL
+   REMOVE SELECTED ITEM
    ========================================================= */
 
-function setupRevealAnimations() {
+function removeSelectedItem(sn) {
 
-  const elements =
-    document.querySelectorAll(
-      ".reveal, .reveal-up, .reveal-left"
+    const number = Number(sn);
+
+    selectedItems = selectedItems.filter(
+        item => item.sn !== number
     );
 
+    updateBookingUI();
 
-  if (
-    !("IntersectionObserver" in window)
-  ) {
+    refreshVisibleTestSelection();
 
-    elements.forEach(
-      element => {
-
-        element.classList.add(
-          "visible"
-        );
-
-      }
-    );
-
-    return;
-  }
+}
 
 
-  const observer =
-    new IntersectionObserver(
-      (entries) => {
+/* =========================================================
+   SEARCH
+   ========================================================= */
 
-        entries.forEach(
-          (entry) => {
+function setupSearch() {
 
-            if (
-              entry.isIntersecting
-            ) {
+    const searchInput =
+        document.getElementById("testSearch");
 
-              entry.target.classList.add(
-                "visible"
-              );
+    const clearButton =
+        document.getElementById("clearSearch");
 
 
-              observer.unobserve(
-                entry.target
-              );
+    if (!searchInput) return;
+
+
+    searchInput.addEventListener("input", () => {
+
+        const query =
+            searchInput.value
+                .trim()
+                .toLowerCase();
+
+
+        const filtered = tests.filter(test => {
+
+            const name =
+                test.name.toLowerCase();
+
+            const serial =
+                String(test.sn);
+
+            return (
+                name.includes(query) ||
+                serial.includes(query)
+            );
+
+        });
+
+
+        renderTests(filtered);
+
+
+        if (clearButton) {
+
+            if (query.length > 0) {
+
+                clearButton.style.opacity = "1";
+                clearButton.style.pointerEvents = "auto";
+
+            } else {
+
+                clearButton.style.opacity = "0";
+                clearButton.style.pointerEvents = "none";
 
             }
 
-          }
+        }
+
+    });
+
+
+    if (clearButton) {
+
+        clearButton.addEventListener("click", () => {
+
+            searchInput.value = "";
+
+            renderTests(tests);
+
+            clearButton.style.opacity = "0";
+            clearButton.style.pointerEvents = "none";
+
+            searchInput.focus();
+
+        });
+
+    }
+
+}
+
+
+/* =========================================================
+   CONTINUE TO BOOKING
+   ========================================================= */
+
+function setupContinueBooking() {
+
+    const button =
+        document.getElementById("continueBooking");
+
+
+    if (!button) return;
+
+
+    button.addEventListener("click", () => {
+
+        if (selectedItems.length === 0) {
+
+            showFormStatus(
+                "Please select at least one test or package first.",
+                "error"
+            );
+
+            document
+                .getElementById("tests")
+                ?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            return;
+
+        }
+
+
+        document
+            .getElementById("booking")
+            ?.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+
+        setTimeout(() => {
+
+            document
+                .getElementById("name")
+                ?.focus();
+
+        }, 700);
+
+    });
+
+}
+
+
+/* =========================================================
+   BOOKING FORM
+   ========================================================= */
+
+function setupBookingForm() {
+
+    const form =
+        document.getElementById("bookingForm");
+
+
+    if (!form) return;
+
+
+    form.addEventListener("submit", submitBooking);
+
+}
+
+
+/* =========================================================
+   SUBMIT BOOKING
+   ========================================================= */
+
+function submitBooking(event) {
+
+    event.preventDefault();
+
+
+    const nameInput =
+        document.getElementById("name");
+
+    const phoneInput =
+        document.getElementById("phone");
+
+    const ageInput =
+        document.getElementById("age");
+
+    const addressInput =
+        document.getElementById("address");
+
+
+    const name =
+        nameInput?.value.trim() || "";
+
+    const phone =
+        phoneInput?.value.trim() || "";
+
+    const age =
+        ageInput?.value.trim() || "";
+
+    const address =
+        addressInput?.value.trim() || "";
+
+
+    /* -------------------------
+       NAME
+       ------------------------- */
+
+    if (name.length < 2) {
+
+        showFormStatus(
+            "Please enter your full name.",
+            "error"
         );
 
-      },
-      {
-        threshold: 0.12
-      }
+        nameInput?.focus();
+
+        return;
+
+    }
+
+
+    /* -------------------------
+       PHONE
+       ------------------------- */
+
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+
+        showFormStatus(
+            "Please enter a valid 10-digit mobile number.",
+            "error"
+        );
+
+        phoneInput?.focus();
+
+        return;
+
+    }
+
+
+    /* -------------------------
+       AGE
+       ------------------------- */
+
+    const numericAge = Number(age);
+
+
+    if (
+        !Number.isInteger(numericAge) ||
+        numericAge < 1 ||
+        numericAge > 100
+    ) {
+
+        showFormStatus(
+            "Age must be between 1 and 100 years.",
+            "error"
+        );
+
+        ageInput?.focus();
+
+        return;
+
+    }
+
+
+    /* -------------------------
+       ADDRESS
+       ------------------------- */
+
+    if (address.length < 5) {
+
+        showFormStatus(
+            "Please enter your full address.",
+            "error"
+        );
+
+        addressInput?.focus();
+
+        return;
+
+    }
+
+
+    /* -------------------------
+       TEST SELECTION
+       ------------------------- */
+
+    if (selectedItems.length === 0) {
+
+        showFormStatus(
+            "Please select at least one test or package.",
+            "error"
+        );
+
+        document
+            .getElementById("tests")
+            ?.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        return;
+
+    }
+
+
+    /* -------------------------
+       WHATSAPP MESSAGE
+       ------------------------- */
+
+    let message =
+        `*VitaCare Booking Request*%0A%0A`;
+
+
+    message +=
+        `*Full Name:* ${encodeURIComponent(name)}%0A`;
+
+    message +=
+        `*Mobile Number:* ${encodeURIComponent(phone)}%0A`;
+
+    message +=
+        `*Age:* ${encodeURIComponent(age)} years%0A`;
+
+    message +=
+        `*Full Address:* ${encodeURIComponent(address)}%0A%0A`;
+
+
+    message +=
+        `*Selected Tests / Packages:*%0A`;
+
+
+    selectedItems.forEach((item, index) => {
+
+        message +=
+            `${index + 1}. ${encodeURIComponent(item.name)}%0A`;
+
+        message +=
+            `   SN: ${item.sn}%0A`;
+
+        message +=
+            `   MRP: ₹${formatNumber(item.mrp)}%0A`;
+
+    });
+
+
+    message +=
+        `%0A*Please assist me with the booking.*`;
+
+
+    const whatsappURL =
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
+
+
+    showFormStatus(
+        "Opening WhatsApp...",
+        "success"
     );
 
 
-  elements.forEach(
-    element =>
-      observer.observe(element)
-  );
+    setTimeout(() => {
+
+        window.open(
+            whatsappURL,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    }, 250);
 
 }
 
 
 /* =========================================================
-   25. CURSOR GLOW
+   PHONE INPUT
    ========================================================= */
 
-if (
-  cursorGlow &&
-  window.matchMedia(
-    "(pointer:fine)"
-  ).matches
-) {
+function setupPhoneInput() {
 
-  window.addEventListener(
-    "mousemove",
-    (event) => {
+    const phone =
+        document.getElementById("phone");
 
-      cursorGlow.style.transform =
-        `translate(${event.clientX}px, ${event.clientY}px)`;
 
-    },
-    {
-      passive: true
-    }
-  );
+    if (!phone) return;
+
+
+    phone.addEventListener("input", () => {
+
+        phone.value =
+            phone.value
+                .replace(/\D/g, "")
+                .slice(0, 10);
+
+    });
 
 }
 
 
 /* =========================================================
-   26. HERO PARALLAX
+   AGE INPUT
    ========================================================= */
 
-if (
-  heroStage &&
-  window.matchMedia(
-    "(pointer:fine)"
-  ).matches
-) {
+function setupAgeInput() {
 
-  heroStage.addEventListener(
-    "mousemove",
-    (event) => {
-
-      const rect =
-        heroStage.getBoundingClientRect();
+    const age =
+        document.getElementById("age");
 
 
-      const x =
-        (event.clientX - rect.left) /
-        rect.width -
-        0.5;
+    if (!age) return;
 
 
-      const y =
-        (event.clientY - rect.top) /
-        rect.height -
-        0.5;
+    age.addEventListener("input", () => {
+
+        let value =
+            age.value
+                .replace(/\D/g, "");
 
 
-      heroStage.style.transform =
-        `translate(${x * 8}px, ${y * 8}px)`;
+        if (value.length > 3) {
 
-    }
-  );
+            value =
+                value.slice(0, 3);
+
+        }
 
 
-  heroStage.addEventListener(
-    "mouseleave",
-    () => {
+        age.value = value;
 
-      heroStage.style.transform =
-        "translate(0, 0)";
 
-    }
-  );
+        if (Number(value) > 100) {
+
+            age.value = "100";
+
+        }
+
+    });
 
 }
 
 
 /* =========================================================
-   27. MOBILE PHONE INPUT
+   MOBILE MENU
    ========================================================= */
 
-const phoneInput =
-  document.getElementById("phone");
+function setupMobileMenu() {
+
+    const toggle =
+        document.getElementById("menuToggle");
+
+    const nav =
+        document.getElementById("navLinks");
 
 
-if (phoneInput) {
+    if (!toggle || !nav) return;
 
-  phoneInput.addEventListener(
-    "input",
-    () => {
 
-      phoneInput.value =
-        phoneInput.value
-          .replace(/\D/g, "")
-          .slice(0, 10);
+    toggle.addEventListener("click", () => {
 
-    }
-  );
+        nav.classList.toggle("active");
+
+    });
+
+
+    nav.querySelectorAll("a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            nav.classList.remove("active");
+
+        });
+
+    });
 
 }
 
 
 /* =========================================================
-   28. INITIALIZE WEBSITE
+   SCROLL PROGRESS
    ========================================================= */
 
-document.addEventListener(
-  "DOMContentLoaded",
-  () => {
+function setupScrollProgress() {
 
-    /* Render all tests */
-
-    renderTests(tests);
+    const progress =
+        document.getElementById("progressBar");
 
 
-    /* Setup featured packages */
-
-    setupFeaturedPackages();
+    if (!progress) return;
 
 
-    /* Setup normal test selection */
+    const updateProgress = () => {
 
-    setupTestSelection();
+        const scrollTop =
+            window.scrollY;
+
+        const documentHeight =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
 
 
-    /* Setup scroll animations */
+        const percentage =
+            documentHeight > 0
+                ? (scrollTop / documentHeight) * 100
+                : 0;
 
-    setupRevealAnimations();
+
+        progress.style.width =
+            `${percentage}%`;
+
+    };
 
 
-    /* Setup progress bar */
+    window.addEventListener(
+        "scroll",
+        updateProgress,
+        { passive: true }
+    );
+
 
     updateProgress();
 
+}
 
-    console.log(
-      "VitaCare loaded successfully."
-    );
 
-    console.log(
-      `Total tests: ${tests.length}`
-    );
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
 
-    console.log(
-      "MRP display mode: ONLY MRP"
-    );
+function setupRevealAnimation() {
 
-  }
-);
+    const elements =
+        document.querySelectorAll(".reveal");
+
+
+    if (!elements.length) return;
+
+
+    if (!("IntersectionObserver" in window)) {
+
+        elements.forEach(element => {
+
+            element.classList.add("active");
+
+        });
+
+        return;
+
+    }
+
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("active");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+
+    elements.forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+}
+
+
+/* =========================================================
+   CURSOR GLOW
+   ========================================================= */
+
+function setupCursorGlow() {
+
+    if (
+        window.matchMedia &&
+        window.matchMedia("(pointer: coarse)").matches
+    ) {
+        return;
+    }
+
+
+    window.addEventListener("mousemove", event => {
+
+        document.documentElement.style.setProperty(
+            "--mouse-x",
+            `${event.clientX}px`
+        );
+
+        document.documentElement.style.setProperty(
+            "--mouse-y",
+            `${event.clientY}px`
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   HERO PARALLAX
+   ========================================================= */
+
+function setupHeroParallax() {
+
+    const heroVisual =
+        document.querySelector(".hero-visual");
+
+
+    if (!heroVisual) return;
+
+
+    if (
+        window.matchMedia &&
+        window.matchMedia("(pointer: coarse)").matches
+    ) {
+        return;
+    }
+
+
+    heroVisual.addEventListener("mousemove", event => {
+
+        const rect =
+            heroVisual.getBoundingClientRect();
+
+
+        const x =
+            event.clientX - rect.left;
+
+        const y =
+            event.clientY - rect.top;
+
+
+        const rotateY =
+            ((x / rect.width) - 0.5) * 5;
+
+        const rotateX =
+            ((y / rect.height) - 0.5) * -5;
+
+
+        heroVisual.style.transform =
+            `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+    });
+
+
+    heroVisual.addEventListener("mouseleave", () => {
+
+        heroVisual.style.transform =
+            "";
+
+    });
+
+}
+
+
+/* =========================================================
+   FORM STATUS
+   ========================================================= */
+
+function showFormStatus(message, type = "") {
+
+    const status =
+        document.getElementById("formStatus");
+
+
+    if (!status) return;
+
+
+    status.textContent = message;
+
+    status.className =
+        `form-status ${type}`;
+
+
+    if (type === "error") {
+
+        setTimeout(() => {
+
+            if (status.textContent === message) {
+
+                status.textContent = "";
+
+                status.className =
+                    "form-status";
+
+            }
+
+        }, 5000);
+
+    }
+
+}
+
+
+/* =========================================================
+   NUMBER FORMAT
+   ========================================================= */
+
+function formatNumber(number) {
+
+    return Number(number).toLocaleString("en-IN");
+
+}
+
+
+/* =========================================================
+   HTML ESCAPE
+   ========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   END
+   ========================================================= */
