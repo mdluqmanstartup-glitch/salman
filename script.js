@@ -806,12 +806,14 @@ function submitBooking(event) {
     const phoneInput =
         document.getElementById("phone");
 
-    const ageInput =
-        document.getElementById("age");
+   const ageInput =
+    document.getElementById("age");
 
-    const addressInput =
-        document.getElementById("address");
+const genderInput =
+    document.getElementById("gender");
 
+const addressInput =
+    document.getElementById("address");
 
     const name =
         nameInput?.value.trim() || "";
@@ -819,12 +821,14 @@ function submitBooking(event) {
     const phone =
         phoneInput?.value.trim() || "";
 
-    const age =
-        ageInput?.value.trim() || "";
+   const age =
+    ageInput?.value.trim() || "";
 
-    const address =
-        addressInput?.value.trim() || "";
+const gender =
+    genderInput?.value.trim() || "";
 
+const address =
+    addressInput?.value.trim() || "";
 
     /* -------------------------
        NAME
@@ -885,7 +889,21 @@ function submitBooking(event) {
         return;
 
     }
+/* -------------------------
+   GENDER
+   ------------------------- */
 
+if (!gender) {
+
+    showFormStatus(
+        "Please select your gender.",
+        "error"
+    );
+
+    genderInput?.focus();
+
+    return;
+}
 
     /* -------------------------
        ADDRESS
@@ -943,10 +961,13 @@ function submitBooking(event) {
         `*Mobile Number:* ${encodeURIComponent(phone)}%0A`;
 
     message +=
-        `*Age:* ${encodeURIComponent(age)} years%0A`;
+    `*Age:* ${encodeURIComponent(age)} years%0A`;
 
-    message +=
-        `*Full Address:* ${encodeURIComponent(address)}%0A%0A`;
+message +=
+    `*Gender:* ${encodeURIComponent(gender)}%0A`;
+
+message +=
+    `*Full Address:* ${encodeURIComponent(address)}%0A%0A`;
 
 
     message +=
