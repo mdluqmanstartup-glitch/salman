@@ -1397,8 +1397,9 @@ button {
 
 .form-row {
     display: grid;
-    grid-template-columns: 1fr 0.45fr;
-    gap: 13px;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    width: 100%;
 }
 
 .form-group label,
@@ -1447,6 +1448,48 @@ button {
     font-size: 12px;
     line-height: 1.55;
 }
+.input-wrap select {
+    width: 100%;
+    height: 48px;
+    padding: 0 39px;
+    border: 1px solid var(--border);
+    outline: none;
+    border-radius: 11px;
+    color: var(--text);
+    background: #fbfdfd;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    transition: 0.25s ease;
+}
+
+.input-wrap select:focus {
+    border-color: var(--primary);
+    background: var(--white);
+    box-shadow: 0 0 0 4px rgba(11, 143, 135, 0.07);
+}
+
+.input-wrap:has(select)::after {
+    content: "\f078";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 9px;
+    color: #91a5aa;
+
+    pointer-events: none;
+}
+
 
 .input-wrap input:focus,
 .input-wrap textarea:focus {
@@ -2596,4 +2639,122 @@ body::before {
         transform: none;
     }
 
+}
+/* =========================
+   GENDER SELECT
+   ========================= */
+
+/* =========================
+   GENDER SELECT
+   ========================= */
+
+.input-wrap select {
+    width: 100%;
+    height: 48px;
+    padding: 0 39px;
+    border: 1px solid var(--border);
+    outline: none;
+    border-radius: 11px;
+    color: var(--text);
+    background: #fbfdfd;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    transition: 0.25s ease;
+}
+
+
+/* Custom dropdown arrow */
+
+.input-wrap select {
+    background-image:
+        linear-gradient(45deg, transparent 50%, #91a5aa 50%),
+        linear-gradient(135deg, #91a5aa 50%, transparent 50%);
+
+    background-position:
+        calc(100% - 17px) 20px,
+        calc(100% - 12px) 20px;
+
+    background-size:
+        5px 5px,
+        5px 5px;
+
+    background-repeat: no-repeat;
+}
+
+
+/* Hover */
+
+.input-wrap select:hover {
+    border-color: var(--primary);
+}
+
+
+/* Focus */
+
+.input-wrap select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(11, 143, 135, 0.07);
+    background-color: var(--white);
+}
+
+
+/* Placeholder */
+
+.input-wrap select option[value=""] {
+    color: #a2b1b5;
+}
+
+
+/* Options */
+
+.input-wrap select option {
+    color: var(--text);
+    background: #ffffff;
+}
+/* Custom dropdown arrow */
+.input-wrap {
+    position: relative;
+}
+
+.input-wrap select {
+    background-image:
+        linear-gradient(45deg, transparent 50%, #71909d 50%),
+        linear-gradient(135deg, #71909d 50%, transparent 50%);
+    background-position:
+        calc(100% - 22px) 26px,
+        calc(100% - 16px) 26px;
+    background-size:
+        6px 6px,
+        6px 6px;
+    background-repeat: no-repeat;
+}
+
+/* Hover */
+.input-wrap select:hover {
+    border-color: #0f948d;
+}
+
+/* Focus */
+.input-wrap select:focus {
+    border-color: #0f948d;
+    box-shadow: 0 0 0 4px rgba(15, 148, 141, 0.10);
+    background-color: #ffffff;
+}
+
+/* Placeholder option */
+.input-wrap select option[value=""] {
+    color: #8aa0aa;
+}
+
+/* Normal options */
+.input-wrap select option {
+    color: #173f54;
+    background: #ffffff;
 }
