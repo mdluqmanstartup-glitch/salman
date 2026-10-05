@@ -409,11 +409,23 @@ button {
 
 .hero-trust {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    flex-wrap: nowrap;
     gap: 24px;
     margin-top: 34px;
+    white-space: nowrap;
 }
 
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #58717a;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
 .trust-item {
     display: flex;
     align-items: center;
@@ -2758,3 +2770,22 @@ body::before {
     color: #173f54;
     background: #ffffff;
 }
+
+
+/* Hero Features - Keep All in One Line */
+.hero-features {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 28px;
+    white-space: nowrap;
+}
+
+.hero-features .feature-item {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+
